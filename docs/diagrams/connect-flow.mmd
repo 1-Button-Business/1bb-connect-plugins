@@ -1,12 +1,13 @@
 flowchart LR
   M[You] -->|ask| AI[Your AI app]
   AI --> R{How it connects}
-  R -->|Claude Code, Codex, Cursor, Windsurf, Antigravity| W[1BB web connection<br/>1bbcommunity.com/api/connect/mcp]
+  R -->|Claude on the web: sign in with 1BB| W[1BB web connection<br/>1bbcommunity.com/api/connect/mcp]
+  R -->|Claude Code, Codex, Cursor, Windsurf, Antigravity: key| W
   R -->|Claude Desktop extension| B[Small bridge on your computer]
   W --> A[1BB Connect]
   B --> A
-  A -->|checks your key and permissions on every request| D[(Your 1BB account)]
+  A -->|checks membership and permissions on every request| D[(Your 1BB account)]
   D -->|goals, training, voice, shared sources| AI
-  AI -->|saves drafts, prepares one post| D
+  AI -->|imports calls, saves drafts, prepares one post| D
   D --> Rev[You review and approve inside 1BB]
   Rev --> P[1BB posts it on schedule]

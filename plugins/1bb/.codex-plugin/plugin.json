@@ -1,7 +1,7 @@
 {
   "name": "1bb",
-  "version": "0.1.0",
-  "description": "1BB Connect for Codex. Reads your 1BB goals, training, Voice DNA and shared sources, and saves drafts to your 1BB Library. Your AI never approves or publishes; you do that inside 1BB.",
+  "version": "0.2.0",
+  "description": "1BB Connect for Codex. Reads your 1BB goals, training, Voice DNA and shared sources, imports calls into your Gallery, saves drafts and proposes posts. Your AI never approves or publishes; you do that inside 1BB.",
   "author": {
     "name": "1 Button Business",
     "url": "https://1bbcommunity.com"
@@ -14,7 +14,7 @@
   "interface": {
     "displayName": "1BB Connect",
     "shortDescription": "Your 1BB goals, training and voice, in Codex",
-    "longDescription": "Connect your own 1BB account. Codex can read your business brief, goals, training, Voice DNA and the sources you chose to share, then save drafts to your 1BB Library. It cannot approve or publish anything. You review and approve every post inside 1BB.",
+    "longDescription": "Connect your own 1BB account. Codex can read your business brief, goals, training, Voice DNA and the sources you chose to share, import calls into your Gallery, save drafts to your 1BB Library and propose posts. It cannot approve or publish anything. You review and approve every post inside 1BB.",
     "developerName": "1 Button Business",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],

@@ -27780,6 +27780,7 @@ var list = external_exports.object({
   cursor: external_exports.string().max(2e3).nullable().default(null),
   limit: external_exports.number().int().min(1).max(20).default(10)
 }).strict();
+var MAX_CALL_TRANSCRIPT_CHARS = 9e5;
 var toolSchemas = {
   onebb_connection_status: external_exports.object({}).strict(),
   onebb_get_context: external_exports.object({}).strict(),
@@ -27820,7 +27821,13 @@ var toolSchemas = {
     scheduled_at: external_exports.string().datetime({ offset: true }),
     timezone: external_exports.string().min(1).max(64)
   }).strict(),
-  onebb_get_publish_status: external_exports.object({ request_id: id }).strict()
+  onebb_get_publish_status: external_exports.object({ request_id: id }).strict(),
+  onebb_import_call: external_exports.object({
+    idempotency_key: key,
+    title: external_exports.string().trim().min(1).max(160),
+    transcript: external_exports.string().min(50).max(MAX_CALL_TRANSCRIPT_CHARS),
+    solo_notes: external_exports.boolean().default(false).describe("True only when the user confirms this is their own solo voice note, not a call.")
+  }).strict()
 };
 var toolNames = Object.keys(toolSchemas);
 var toolTitles = {
@@ -27838,7 +27845,8 @@ var toolTitles = {
   onebb_update_draft: "Update a draft caption",
   onebb_list_destinations: "List social accounts",
   onebb_prepare_publish: "Prepare one post for review",
-  onebb_get_publish_status: "Check a proposed post"
+  onebb_get_publish_status: "Check a proposed post",
+  onebb_import_call: "Import a call into the Gallery"
 };
 var toolDescriptions = {
   onebb_connection_status: "Check connection permissions, expiry and available tools. Never ask for passwords or tokens in chat.",
@@ -27855,7 +27863,8 @@ var toolDescriptions = {
   onebb_update_draft: "Update the caption of an unapproved written/carousel draft using its expected_version. Keeps slides intact. Never changes a scheduled post. A conflict requires re-reading and user review.",
   onebb_list_destinations: "List supported social accounts owned by the connected main business, without credentials. Ask the user to choose the exact account before preparing a post.",
   onebb_prepare_publish: "Prepare a single post for human approval in 1BB, only at the user's requested exact account and time. Requires current content version, complete rendered media, explicit UTC offset and IANA timezone. Does NOT schedule or publish. Return the review link; approval expires after 15 minutes.",
-  onebb_get_publish_status: "Read the current state of this connection's publish request. Distinguish review required, scheduled, publishing, published and failed. Missing metrics are unavailable, not zero. Do not automatically retry publication."
+  onebb_get_publish_status: "Read the current state of this connection's publish request. Distinguish review required, scheduled, publishing, published and failed. Missing metrics are unavailable, not zero. Do not automatically retry publication.",
+  onebb_import_call: "Import one call the user chose into their 1BB Gallery. Get the transcript with the user's own connectors (Fathom, Granola, Zoom, Fireflies, email) or a paste, and send the full text with speaker names, e.g. 'Name: words' lines, WebVTT or SRT. 1BB then finds post-worthy moments. Only import calls the user asked for. Sending the same transcript again does not duplicate it."
 };
 
 // src/lib/connect/client.ts
@@ -27951,7 +27960,8 @@ function createConnectServer(client, available) {
     const write = [
       "onebb_save_draft",
       "onebb_update_draft",
-      "onebb_prepare_publish"
+      "onebb_prepare_publish",
+      "onebb_import_call"
     ].includes(name);
     server.registerTool(
       name,
