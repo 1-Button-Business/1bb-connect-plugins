@@ -1,0 +1,7 @@
+# Add this to ~/.codex/config.toml (Codex CLI, IDE extension and desktop app).
+# The key is read from the ONEBB_CONNECTION_TOKEN environment variable.
+# Never paste the key itself into this file.
+
+[mcp_servers.onebb]
+url = "https://1bbcommunity.com/api/connect/mcp"
+bearer_token_env_var = "ONEBB_CONNECTION_TOKEN"

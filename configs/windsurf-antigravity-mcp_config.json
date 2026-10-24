@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "1bb": {
+      "serverUrl": "https://1bbcommunity.com/api/connect/mcp",
+      "headers": {
+        "Authorization": "Bearer ${env:ONEBB_CONNECTION_TOKEN}"
+      }
+    }
+  }
+}

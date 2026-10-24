@@ -1,0 +1,61 @@
+{
+  "$schema": "https://raw.githubusercontent.com/anthropics/mcpb/main/schemas/mcpb-manifest-v0.4.schema.json",
+  "manifest_version": "0.4",
+  "name": "1bb-connect",
+  "display_name": "1BB Connect",
+  "version": "0.1.0",
+  "description": "Connect your own 1BB account to Claude Desktop. Read your goals, training, Voice DNA and shared sources, and save drafts to your 1BB Library.",
+  "long_description": "1BB Connect lets Claude read the parts of your 1BB account you chose to share when you made your connection key: your business brief, goals, training, Voice DNA and Second Brain sources. Claude can save drafts to your 1BB Library and prepare a post for your review. Claude can never approve or publish. You approve every post inside 1BB. Keys last 7 days. Make a new one in 1BB Settings, then Connect, and paste it into this extension's settings.",
+  "author": {
+    "name": "1 Button Business",
+    "url": "https://1bbcommunity.com"
+  },
+  "homepage": "https://1bbcommunity.com",
+  "support": "https://1bbcommunity.com/dashboard/settings/connect",
+  "license": "UNLICENSED",
+  "keywords": ["1bb", "content", "social", "drafts"],
+  "server": {
+    "type": "node",
+    "entry_point": "server/connect.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/connect.mjs"],
+      "env": {
+        "ONEBB_API_ORIGIN": "https://fine-cat-456.convex.site",
+        "ONEBB_CONNECTION_TOKEN": "${user_config.connection_token}"
+      }
+    }
+  },
+  "user_config": {
+    "connection_token": {
+      "type": "string",
+      "title": "1BB connection key",
+      "description": "Create it in 1BB: Settings, then Connect. It starts with 1bbct_ and lasts 7 days. It is stored in your computer's secure keychain. Never paste it into a chat.",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "tools": [
+    { "name": "onebb_connection_status", "description": "Check connection permissions, expiry and available tools." },
+    { "name": "onebb_get_context", "description": "Read your main business brief." },
+    { "name": "onebb_get_voice_rules", "description": "Read a safe summary of your Voice DNA rules." },
+    { "name": "onebb_list_goals", "description": "List your current goals (read only)." },
+    { "name": "onebb_search_training", "description": "Search available 1BB training." },
+    { "name": "onebb_get_training", "description": "Read one training module and your watch state." },
+    { "name": "onebb_search_sources", "description": "Search the Second Brain sources you chose to share." },
+    { "name": "onebb_get_source", "description": "Read one shared source with citation details." },
+    { "name": "onebb_list_content", "description": "List your Library content." },
+    { "name": "onebb_get_content", "description": "Read one Library draft and its version." },
+    { "name": "onebb_save_draft", "description": "Save a post or carousel copy to your Library as an unapproved draft." },
+    { "name": "onebb_update_draft", "description": "Update the caption of an unapproved draft." },
+    { "name": "onebb_list_destinations", "description": "List your connected social accounts." },
+    { "name": "onebb_prepare_publish", "description": "Prepare one post for your review in 1BB. Does not schedule or publish." },
+    { "name": "onebb_get_publish_status", "description": "Check the state of a post you prepared." }
+  ],
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=22.0.0"
+    }
+  }
+}

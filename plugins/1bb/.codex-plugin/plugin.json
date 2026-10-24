@@ -1,0 +1,28 @@
+{
+  "name": "1bb",
+  "version": "0.1.0",
+  "description": "1BB Connect for Codex. Reads your 1BB goals, training, Voice DNA and shared sources, and saves drafts to your 1BB Library. Your AI never approves or publishes; you do that inside 1BB.",
+  "author": {
+    "name": "1 Button Business",
+    "url": "https://1bbcommunity.com"
+  },
+  "homepage": "https://1bbcommunity.com/dashboard/settings/connect",
+  "license": "UNLICENSED",
+  "keywords": ["1bb", "content", "social", "drafts", "mcp"],
+  "skills": "./skills/",
+  "mcpServers": "./.codex-mcp.json",
+  "interface": {
+    "displayName": "1BB Connect",
+    "shortDescription": "Your 1BB goals, training and voice, in Codex",
+    "longDescription": "Connect your own 1BB account. Codex can read your business brief, goals, training, Voice DNA and the sources you chose to share, then save drafts to your 1BB Library. It cannot approve or publish anything. You review and approve every post inside 1BB.",
+    "developerName": "1 Button Business",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://1bbcommunity.com",
+    "defaultPrompt": [
+      "Plan my day from my 1BB goals and training.",
+      "Write a LinkedIn post in my 1BB voice and save it as a draft.",
+      "Turn one of my 1BB sources into an Instagram carousel draft."
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "1bb-connect",
+  "interface": {
+    "displayName": "1BB Connect"
+  },
+  "plugins": [
+    {
+      "name": "1bb",
+      "source": {
+        "source": "local",
+        "path": "./plugins/1bb"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

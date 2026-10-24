@@ -1,0 +1,18 @@
+{
+  "name": "1bb-connect-plugins",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Installable 1BB Connect plugins for Claude Code, Codex, Claude Desktop and Cursor.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "validate": "node scripts/validate.ts",
+    "validate:mcpb": "npx -y @anthropic-ai/mcpb@2.1.2 validate claude-desktop/manifest.json",
+    "pack:mcpb": "npx -y @anthropic-ai/mcpb@2.1.2 pack claude-desktop dist/1bb-connect.mcpb",
+    "smoke": "node scripts/smoke-bridge.ts",
+    "check": "npm run validate && npm run validate:mcpb && npm run pack:mcpb && npm run smoke"
+  },
+  "license": "UNLICENSED"
+}

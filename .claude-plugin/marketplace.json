@@ -1,0 +1,20 @@
+{
+  "name": "1bb-connect",
+  "owner": {
+    "name": "1 Button Business"
+  },
+  "metadata": {
+    "description": "Plug your 1BB account into Claude Code. Read your goals, training, Voice DNA and shared sources, and save drafts back to your 1BB Library.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "1bb",
+      "source": "./plugins/1bb",
+      "description": "1BB Connect: your 1BB business context and Library inside Claude Code, plus three ready-made playbooks.",
+      "version": "0.1.0",
+      "category": "productivity",
+      "keywords": ["1bb", "content", "social", "drafts", "mcp"]
+    }
+  ]
+}
