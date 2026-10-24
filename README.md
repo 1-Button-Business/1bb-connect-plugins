@@ -94,7 +94,7 @@ Claude Code gets the full plugin: the 1BB tools plus three ready-made playbooks.
 2. Start Claude Code (`claude`) and type:
 
 ```text
-/plugin marketplace add <the 1BB Connect address Drey shares with you>
+/plugin marketplace add 1-Button-Business/1bb-connect-plugins
 /plugin install 1bb@1bb-connect
 ```
 
@@ -110,7 +110,7 @@ Codex also gets the full plugin with the three playbooks.
 2. Run:
 
 ```sh
-codex plugin marketplace add <the 1BB Connect address Drey shares with you>
+codex plugin marketplace add 1-Button-Business/1bb-connect-plugins
 codex plugin add 1bb@1bb-connect
 ```
 
