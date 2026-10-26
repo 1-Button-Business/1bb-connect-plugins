@@ -3,7 +3,7 @@
   "manifest_version": "0.4",
   "name": "1bb-connect",
   "display_name": "1BB Connect",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Connect your own 1BB account to Claude Desktop. Read your goals, training, Voice DNA and shared sources, and save drafts to your 1BB Library.",
   "long_description": "1BB Connect lets Claude read the parts of your 1BB account you chose to share when you made your connection key: your business brief, goals, training, Voice DNA and Second Brain sources. Claude can import a call into your Gallery, save drafts to your 1BB Library and prepare a post for your review. Claude can never approve or publish. You approve every post inside 1BB. Your key keeps working while your membership is active and stops if it ends.",
   "author": {
@@ -150,6 +150,34 @@
     {
       "name": "onebb_help",
       "description": "Plain answers about how 1BB Connect works."
+    },
+    {
+      "name": "onebb_reschedule_post",
+      "description": "Move a scheduled post to a new time."
+    },
+    {
+      "name": "onebb_retry_post",
+      "description": "Try a failed post again."
+    },
+    {
+      "name": "onebb_delete_draft",
+      "description": "Delete a draft. It can be brought back."
+    },
+    {
+      "name": "onebb_restore_draft",
+      "description": "Bring back a deleted draft."
+    },
+    {
+      "name": "onebb_set_photos",
+      "description": "Set, reorder or remove a draft's photos."
+    },
+    {
+      "name": "onebb_delete_gallery_item",
+      "description": "Remove a photo or call from the Gallery. It can be brought back."
+    },
+    {
+      "name": "onebb_restore_gallery_item",
+      "description": "Bring back a removed photo or call."
     }
   ],
   "compatibility": {

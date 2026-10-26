@@ -130,7 +130,7 @@ check(env[ENV_VAR] === "${user_config.connection_token}", "token comes from user
 const tokenField = obj(obj(mcpb.user_config).connection_token);
 check(tokenField.sensitive === true && tokenField.required === true, "token field is sensitive and required");
 check(existsSync(join(ROOT, "claude-desktop", String(server.entry_point))), "entry point bundle exists");
-check(toolNames.size === 27, "27 tools listed");
+check(toolNames.size === 34, "34 tools listed");
 
 console.log("Other client snippets");
 const cursor = obj(obj(readJson("configs/cursor-mcp.json").mcpServers)["1bb"]);
