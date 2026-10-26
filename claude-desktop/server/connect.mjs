@@ -28470,20 +28470,34 @@ function whenText(at, zone) {
   try { return new Date(at).toLocaleString(host.ctx.locale || undefined, { weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZone: zone }); }
   catch (e) { return ""; }
 }
-function lineUp(when) {
+function zoneNow() { return host.ctx.timeZone || (Intl.DateTimeFormat().resolvedOptions().timeZone) || "America/New_York"; }
+// First tap: find which of the member's accounts this can go to, then ask,
+// naming the account and the time, before anything is sent.
+function ask(when) {
+  var v = state.view;
+  state.busy = true; setMsg("Finding your " + platformName(v.platform) + " account.");
+  callTool("onebb_list_destinations", {})
+    .then(function (d) {
+      var accounts = (d.destinations || []).filter(function (a) { return a.platform === v.platform && a.available; });
+      state.busy = false;
+      if (!accounts.length) return setMsg("Connect your " + platformName(v.platform) + " account in 1BB first.", "bad");
+      if (when === "next_slot" && !d.next_open_slot) return setMsg("You have no open posting time coming up. Tap Post it now instead.", "bad");
+      state.accounts = accounts;
+      state.slot = d.next_open_slot || null;
+      state.confirm = when;
+      setMsg("", "");
+      focusKey("yes-0");
+    })
+    .catch(function (err) { state.busy = false; setMsg(friendly(err, "That did not load. Try again."), "bad"); });
+}
+function lineUp(when, match) {
   var v = state.view;
   state.confirm = null;
   state.waiting = null; // an old review link must never sit next to a new failure
-  state.busy = true; setMsg(when === "now" ? "Lining it up to go out now." : "Lining it up for your next open time.");
-  var zone = host.ctx.timeZone || (Intl.DateTimeFormat().resolvedOptions().timeZone) || "America/New_York";
-  callTool("onebb_list_destinations", {})
-    .then(function (d) {
-      var match = (d.destinations || []).filter(function (a) { return a.platform === v.platform && a.available; })[0];
-      if (!match) {
-        var err = new Error("Connect your " + platformName(v.platform) + " account in 1BB first.");
-        err.code = "NO_ACCOUNT";
-        throw err;
-      }
+  state.busy = true; setMsg(when === "now" ? "Posting it." : "Lining it up for your next open time.");
+  var zone = zoneNow();
+  Promise.resolve()
+    .then(function () {
       var input = {
         idempotency_key: newKey(), content_id: v.content_id, expected_version: v.version,
         destination_account_id: match.destination_account_id, when: when, timezone: zone
@@ -28599,11 +28613,14 @@ function render() {
   } else if (state.confirm) {
     // One more tap so a slip of the finger never posts.
     var label = platformName(v.platform);
-    kids.push(el("p", { class: "ask", text: state.confirm === "now" ? "Post this to " + label + " now?" : "Post this to " + label + " at your next open time?" }));
-    kids.push(el("div", { class: "actions" }, [
-      el("button", { class: "primary", type: "button", "data-key": "yes", disabled: state.busy, onclick: function () { lineUp(state.confirm); }, text: "Yes, post it" }),
+    var at = state.confirm === "now" ? "now" : "on " + whenText(state.slot, zoneNow());
+    var many = state.accounts.length > 1;
+    kids.push(el("p", { class: "ask", text: many ? "Post this to " + label + " " + at + "? Pick the account." : "Post this to " + label + " " + at + "?" }));
+    kids.push(el("div", { class: "actions" }, state.accounts.map(function (a, i) {
+      return el("button", { class: i === 0 ? "primary" : "", type: "button", "data-key": "yes-" + i, disabled: state.busy, onclick: function () { lineUp(state.confirm, a); }, text: "Yes, post as " + a.label });
+    }).concat([
       el("button", { type: "button", "data-key": "notyet", disabled: state.busy, onclick: function () { state.confirm = null; setMsg("", ""); focusKey("lineup"); }, text: "Not yet" })
-    ]));
+    ])));
     kids.push(el("p", { class: state.tone ? "msg " + state.tone : "msg", role: "status", text: state.msg }));
   } else if (state.waiting && state.waiting.review_url) {
     // Lined up: the only next step is Approve in 1BB, so it is the only big button.
@@ -28613,8 +28630,8 @@ function render() {
     var main = [], more = [];
     if (!locked(v)) {
       main.push(
-        el("button", { class: "primary", type: "button", "data-key": "lineup", disabled: state.busy, onclick: function () { state.confirm = "now"; setMsg("", ""); focusKey("yes"); }, text: "Post it now" }),
-        el("button", { type: "button", "data-key": "nextslot", disabled: state.busy, onclick: function () { state.confirm = "next_slot"; setMsg("", ""); focusKey("yes"); }, text: "Post at my next open time" })
+        el("button", { class: "primary", type: "button", "data-key": "lineup", disabled: state.busy, onclick: function () { ask("now"); }, text: "Post it now" }),
+        el("button", { type: "button", "data-key": "nextslot", disabled: state.busy, onclick: function () { ask("next_slot"); }, text: "Post at my next open time" })
       );
       more.push(el("button", { type: "button", "data-key": "change", disabled: state.busy, onclick: function () { state.editing = true; state.draft = v.body || ""; state.focus = true; setMsg("", ""); }, text: "Change text" }));
     }
