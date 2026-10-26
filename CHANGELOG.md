@@ -1,5 +1,19 @@
 # Changelog
 
+## [2026-10-26]
+### Added
+- `onebb_publish` and `onebb_cancel_post`: the AI posts after the member says yes in the chat, no 1BB visit (27 tools). post-everywhere skill branches on direct_posting.
+- Bridge 0.3.0 with in-chat post card, photo picker and numbers views, and old-bridge-safe tool lists.
+## [2026-10-25, version 0.3.0]
+
+### Added
+- `post-everywhere` playbook: show a card per platform, ask where (suggest every account), offer a photo (Gallery, phone link, or a file upload in Claude Code and Codex), ask draft / post now / next open time, then hand over one Approve link.
+- `check-my-numbers` playbook: views, likes and more per post from `onebb_list_posts`, the best post, and one idea to do more of it.
+- `tell-drey` playbook: sends a member's bug, idea or question to Drey with `onebb_send_feedback`.
+
+### Changed
+- Plugin, marketplace and extension versions bumped to 0.3.0.
+
 ## [2026-10-24, version 0.2.0]
 
 ### Added

@@ -106,7 +106,7 @@ console.log("Skills");
 const mcpb = readJson("claude-desktop/manifest.json");
 const toolNames = new Set((mcpb.tools as Json[]).map((t) => String(t.name)));
 const skillDirs = readdirSync(join(ROOT, PLUGIN, "skills"));
-check(skillDirs.length === 4, "four playbook skills");
+check(skillDirs.length === 7, "seven playbook skills");
 for (const dir of skillDirs) {
   const text = readFileSync(join(ROOT, PLUGIN, "skills", dir, "SKILL.md"), "utf8");
   const front = /^---\n([\s\S]*?)\n---\n/.exec(text)?.[1] ?? "";
@@ -130,7 +130,7 @@ check(env[ENV_VAR] === "${user_config.connection_token}", "token comes from user
 const tokenField = obj(obj(mcpb.user_config).connection_token);
 check(tokenField.sensitive === true && tokenField.required === true, "token field is sensitive and required");
 check(existsSync(join(ROOT, "claude-desktop", String(server.entry_point))), "entry point bundle exists");
-check(toolNames.size === 16, "16 tools listed");
+check(toolNames.size === 27, "27 tools listed");
 
 console.log("Other client snippets");
 const cursor = obj(obj(readJson("configs/cursor-mcp.json").mcpServers)["1bb"]);

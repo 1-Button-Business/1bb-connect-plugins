@@ -243,7 +243,7 @@ plugins/1bb/
   .mcp.json                          Claude Code MCP: remote http + Bearer ${ONEBB_CONNECTION_TOKEN}
   .codex-plugin/plugin.json          Codex manifest (skills + mcpServers + interface)
   .codex-mcp.json                    Codex MCP: remote http + bearer_token_env_var
-  skills/plan-my-day | write-in-my-voice | source-to-content | import-a-call
+  skills/plan-my-day | write-in-my-voice | source-to-content | import-a-call | post-everywhere | check-my-numbers | tell-drey
 claude-desktop/
   manifest.json                      .mcpb manifest (key is a sensitive user_config field)
   server/connect.mjs                 prebuilt stdio bridge (copied, not edited)

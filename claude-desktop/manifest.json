@@ -3,7 +3,7 @@
   "manifest_version": "0.4",
   "name": "1bb-connect",
   "display_name": "1BB Connect",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Connect your own 1BB account to Claude Desktop. Read your goals, training, Voice DNA and shared sources, and save drafts to your 1BB Library.",
   "long_description": "1BB Connect lets Claude read the parts of your 1BB account you chose to share when you made your connection key: your business brief, goals, training, Voice DNA and Second Brain sources. Claude can import a call into your Gallery, save drafts to your 1BB Library and prepare a post for your review. Claude can never approve or publish. You approve every post inside 1BB. Your key keeps working while your membership is active and stops if it ends.",
   "author": {
@@ -13,13 +13,20 @@
   "homepage": "https://1bbcommunity.com",
   "support": "https://1bbcommunity.com/dashboard/settings/connect",
   "license": "UNLICENSED",
-  "keywords": ["1bb", "content", "social", "drafts"],
+  "keywords": [
+    "1bb",
+    "content",
+    "social",
+    "drafts"
+  ],
   "server": {
     "type": "node",
     "entry_point": "server/connect.mjs",
     "mcp_config": {
       "command": "node",
-      "args": ["${__dirname}/server/connect.mjs"],
+      "args": [
+        "${__dirname}/server/connect.mjs"
+      ],
       "env": {
         "ONEBB_API_ORIGIN": "https://fine-cat-456.convex.site",
         "ONEBB_CONNECTION_TOKEN": "${user_config.connection_token}"
@@ -36,25 +43,121 @@
     }
   },
   "tools": [
-    { "name": "onebb_connection_status", "description": "Check connection permissions, expiry and available tools." },
-    { "name": "onebb_get_context", "description": "Read your main business brief." },
-    { "name": "onebb_get_voice_rules", "description": "Read a safe summary of your Voice DNA rules." },
-    { "name": "onebb_list_goals", "description": "List your current goals (read only)." },
-    { "name": "onebb_search_training", "description": "Search available 1BB training." },
-    { "name": "onebb_get_training", "description": "Read one training module and your watch state." },
-    { "name": "onebb_search_sources", "description": "Search the Second Brain sources you chose to share." },
-    { "name": "onebb_get_source", "description": "Read one shared source with citation details." },
-    { "name": "onebb_list_content", "description": "List your Library content." },
-    { "name": "onebb_get_content", "description": "Read one Library draft and its version." },
-    { "name": "onebb_save_draft", "description": "Save a post or carousel copy to your Library as an unapproved draft." },
-    { "name": "onebb_update_draft", "description": "Update the caption of an unapproved draft." },
-    { "name": "onebb_list_destinations", "description": "List your connected social accounts." },
-    { "name": "onebb_prepare_publish", "description": "Prepare one post for your review in 1BB. Does not schedule or publish." },
-    { "name": "onebb_get_publish_status", "description": "Check the state of a post you prepared." },
-    { "name": "onebb_import_call", "description": "Import a call transcript you chose into your 1BB Gallery." }
+    {
+      "name": "onebb_connection_status",
+      "description": "Check connection permissions, expiry and available tools."
+    },
+    {
+      "name": "onebb_get_context",
+      "description": "Read your main business brief."
+    },
+    {
+      "name": "onebb_get_voice_rules",
+      "description": "Read a safe summary of your Voice DNA rules."
+    },
+    {
+      "name": "onebb_list_goals",
+      "description": "List your current goals (read only)."
+    },
+    {
+      "name": "onebb_search_training",
+      "description": "Search available 1BB training."
+    },
+    {
+      "name": "onebb_get_training",
+      "description": "Read one training module and your watch state."
+    },
+    {
+      "name": "onebb_search_sources",
+      "description": "Search the Second Brain sources you chose to share."
+    },
+    {
+      "name": "onebb_get_source",
+      "description": "Read one shared source with citation details."
+    },
+    {
+      "name": "onebb_list_content",
+      "description": "List your Library content."
+    },
+    {
+      "name": "onebb_get_content",
+      "description": "Read one Library draft and its version."
+    },
+    {
+      "name": "onebb_save_draft",
+      "description": "Save a post or carousel copy to your Library as an unapproved draft."
+    },
+    {
+      "name": "onebb_update_draft",
+      "description": "Update the caption of an unapproved draft."
+    },
+    {
+      "name": "onebb_list_destinations",
+      "description": "List your connected social accounts."
+    },
+    {
+      "name": "onebb_prepare_publish",
+      "description": "Prepare one post for your review in 1BB. Does not schedule or publish."
+    },
+    {
+      "name": "onebb_get_publish_status",
+      "description": "Check the state of a post you prepared."
+    },
+    {
+      "name": "onebb_publish",
+      "description": "Post or schedule one post after you say yes in the chat. No 1BB visit needed."
+    },
+    {
+      "name": "onebb_cancel_post",
+      "description": "Cancel a post before it goes out."
+    },
+    {
+      "name": "onebb_import_call",
+      "description": "Import a call transcript you chose into your 1BB Gallery."
+    },
+    {
+      "name": "onebb_list_photos",
+      "description": "List the photos in your 1BB Gallery."
+    },
+    {
+      "name": "onebb_add_photos",
+      "description": "Put Gallery photos on a draft, in order."
+    },
+    {
+      "name": "onebb_start_photo_upload",
+      "description": "Start adding a photo file to your Gallery."
+    },
+    {
+      "name": "onebb_finish_photo_upload",
+      "description": "Finish adding a photo file to your Gallery."
+    },
+    {
+      "name": "onebb_list_calls",
+      "description": "List the calls in your 1BB Gallery."
+    },
+    {
+      "name": "onebb_get_call",
+      "description": "Read one call and the posts made from it."
+    },
+    {
+      "name": "onebb_list_posts",
+      "description": "List your posts and how they did."
+    },
+    {
+      "name": "onebb_send_feedback",
+      "description": "Send a bug, idea or question to Drey."
+    },
+    {
+      "name": "onebb_help",
+      "description": "Plain answers about how 1BB Connect works."
+    }
   ],
   "compatibility": {
-    "platforms": ["darwin", "win32", "linux"],
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
     "runtimes": {
       "node": ">=22.0.0"
     }

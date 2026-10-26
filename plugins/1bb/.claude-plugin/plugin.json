@@ -1,6 +1,6 @@
 {
   "name": "1bb",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "1BB Connect for Claude Code. Reads your 1BB goals, training, Voice DNA and shared sources, imports calls into your Gallery, saves drafts and proposes posts. Your AI never approves or publishes; you do that inside 1BB.",
   "author": {
     "name": "1 Button Business",
