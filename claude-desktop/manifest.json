@@ -3,7 +3,7 @@
   "manifest_version": "0.4",
   "name": "1bb-connect",
   "display_name": "1BB Connect",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Connect your own 1BB account to Claude Desktop. Read your goals, training, Voice DNA and shared sources, and save drafts to your 1BB Library.",
   "long_description": "1BB Connect lets Claude read the parts of your 1BB account you chose to share when you made your connection key: your business brief, goals, training, Voice DNA and Second Brain sources. Claude can import a call into your Gallery, save drafts to your 1BB Library and prepare a post for your review. Claude can never approve or publish. You approve every post inside 1BB. Your key keeps working while your membership is active and stops if it ends.",
   "author": {
@@ -106,6 +106,10 @@
     {
       "name": "onebb_publish",
       "description": "Post or schedule one post after you say yes in the chat. No 1BB visit needed."
+    },
+    {
+      "name": "onebb_publish_everywhere",
+      "description": "Post one message on all your accounts at once, after you say yes. All go out together or none do."
     },
     {
       "name": "onebb_cancel_post",

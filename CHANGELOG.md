@@ -1,5 +1,13 @@
 # Changelog
 
+## [2026-10-27, version 0.3.2]
+### Added
+- `onebb_publish_everywhere`: one yes lines up a post on several accounts, all or nothing. The post-everywhere playbook uses it.
+- `onebb_list_posts` `show: "upcoming"` for "what's going out this week".
+### Changed
+- The in-chat post card shows the post the way its platform will: photos in the real crop, caption cut at "more", the chat's light or dark look, and a 1BB mark. It also shows when the AI posts, lines up, reschedules or changes photos.
+- Plugin, marketplace and extension versions bumped to 0.3.2.
+
 ## [2026-10-26, version 0.3.1]
 ### Added
 - Tools so nothing sends a member back to 1BB (34 tools): `onebb_delete_draft` and `onebb_restore_draft`, `onebb_set_photos` (remove or reorder), `onebb_reschedule_post`, `onebb_retry_post`, `onebb_delete_gallery_item` and `onebb_restore_gallery_item`. `onebb_cancel_post` also takes a `post_id`. Deletes can always be undone.
