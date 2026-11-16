@@ -105,8 +105,12 @@ check(!existsSync(join(ROOT, PLUGIN, "plugin.json")), "no root plugin.json (woul
 console.log("Skills");
 const mcpb = readJson("claude-desktop/manifest.json");
 const toolNames = new Set((mcpb.tools as Json[]).map((t) => String(t.name)));
+// Setup tools the live 1BB server added after Desktop bridge 0.3.2 was built.
+// Claude Code and Codex get them over the web connection. The onboarding
+// playbook tells the AI what to say when a connection does not list them.
+const skillTools = new Set([...toolNames, "onebb_onboarding_status", "onebb_save_setup_answer", "onebb_skip_setup_step", "onebb_set_contact_email", "onebb_add_connection", "onebb_list_connected", "onebb_set_autopilot"]);
 const skillDirs = readdirSync(join(ROOT, PLUGIN, "skills"));
-check(skillDirs.length === 7, "seven playbook skills");
+check(skillDirs.length === 8, "eight playbook skills");
 for (const dir of skillDirs) {
   const text = readFileSync(join(ROOT, PLUGIN, "skills", dir, "SKILL.md"), "utf8");
   const front = /^---\n([\s\S]*?)\n---\n/.exec(text)?.[1] ?? "";
@@ -118,7 +122,7 @@ for (const dir of skillDirs) {
   check(/Flag missing info/.test(text), `${dir}: flags missing business info`);
   check(/not posted|Never claim/.test(text), `${dir}: never claims posted`);
   const used = [...text.matchAll(/`(onebb_[a-z_]+)`/g)].map((m) => m[1]);
-  const unknown = used.filter((t) => !toolNames.has(t));
+  const unknown = used.filter((t) => !skillTools.has(t));
   check(unknown.length === 0, `${dir}: every tool name exists${unknown.length ? ` (unknown: ${unknown.join(", ")})` : ""}`);
 }
 

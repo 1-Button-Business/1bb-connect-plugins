@@ -1,5 +1,12 @@
 # Changelog
 
+## [2026-11-16, version 0.3.3]
+### Added
+- `onboarding` playbook, so a new member can type `/1bb:onboarding` in Claude Code (or say "onboard me" in any app) and get set up in the chat. Why: new members had no single command to start with, and setup already works through the live 1BB tools.
+### Changed
+- The validator expects eight playbooks and knows the seven setup tools the live server added after Desktop bridge 0.3.2. The Desktop bridge itself is unchanged, so the playbook tells the AI what to say when a connection does not list the setup tools.
+- Plugin, marketplace and extension versions bumped to 0.3.3.
+
 ## [2026-10-27, version 0.3.2]
 ### Added
 - `onebb_publish_everywhere`: one yes lines up a post on several accounts, all or nothing. The post-everywhere playbook uses it.

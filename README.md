@@ -101,7 +101,7 @@ Then close and reopen your AI app and any terminal windows.
 
 ## Claude Code
 
-Claude Code gets the full plugin: the 1BB tools plus four ready-made playbooks.
+Claude Code gets the full plugin: the 1BB tools plus ready-made playbooks, starting with `/1bb:onboarding` for new members.
 
 1. Do Step 1 and Step 2, then open a new Terminal window.
 2. Start Claude Code (`claude`) and type:
@@ -117,7 +117,7 @@ Claude Code gets the full plugin: the 1BB tools plus four ready-made playbooks.
 
 ## Codex
 
-Codex also gets the full plugin with the four playbooks.
+Codex also gets the full plugin with the same playbooks.
 
 1. Do Step 1 and Step 2, then open a new Terminal window.
 2. Run:
@@ -199,10 +199,13 @@ Paste this (also in [configs/windsurf-antigravity-mcp_config.json](configs/winds
 
 Any other AI app that takes a web address plus headers for MCP works the same way: the address above, and the header `Authorization: Bearer <your key>` read from `ONEBB_CONNECTION_TOKEN`.
 
-## The four playbooks (Claude Code and Codex)
+## The playbooks (Claude Code and Codex)
+
+**New here? Start with setup.** In Claude Code type `/1bb:onboarding`, or in any app just say "onboard me". Your AI shows a short checklist, asks one plain question at a time, and gives you a link for the few steps that need a tap in your browser. It takes about 5 minutes and you can skip anything.
 
 | Say this | What happens |
 | --- | --- |
+| "Onboard me" or `/1bb:onboarding` | Walks you through 1BB setup in the chat: your business answers, your accounts, your posting days. Saves an answer only after you say yes |
 | "Plan my day from my 1BB goals" | Reads your goals, training and drafts, then gives you a top 3, one training to watch and one content move |
 | "Write a LinkedIn post in my voice and save it" | Uses your Voice DNA, saves a draft to your Library, tells you it is not posted |
 | "Turn my 1BB source about pricing into a carousel" | Finds the source, writes it in your voice, saves a draft linked to that source |
@@ -243,7 +246,7 @@ plugins/1bb/
   .mcp.json                          Claude Code MCP: remote http + Bearer ${ONEBB_CONNECTION_TOKEN}
   .codex-plugin/plugin.json          Codex manifest (skills + mcpServers + interface)
   .codex-mcp.json                    Codex MCP: remote http + bearer_token_env_var
-  skills/plan-my-day | write-in-my-voice | source-to-content | import-a-call | post-everywhere | check-my-numbers | tell-drey
+  skills/onboarding | plan-my-day | write-in-my-voice | source-to-content | import-a-call | post-everywhere | check-my-numbers | tell-drey
 claude-desktop/
   manifest.json                      .mcpb manifest (key is a sensitive user_config field)
   server/connect.mjs                 prebuilt stdio bridge (copied, not edited)
