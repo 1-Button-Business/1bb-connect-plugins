@@ -1,5 +1,11 @@
 # Changelog
 
+## [2026-11-17, version 0.3.4]
+### Changed
+- The validator knows `onebb_guide`, the new read-only tool that serves 1BB's playbook as topic guides (setup, posting, carousels, calls, fixing and more). Why: some AI apps cut the server's long instructions short, so the live server now sends short instructions and the AI reads the guide for each job on demand.
+- The `onboarding` playbook reads the `setup` guide first when the connection lists `onebb_guide`. Older connections without it work as before.
+- Plugin, marketplace and extension versions bumped to 0.3.4. The Desktop bridge itself is unchanged.
+
 ## [2026-11-16, version 0.3.3]
 ### Added
 - `onboarding` playbook, so a new member can type `/1bb:onboarding` in Claude Code (or say "onboard me" in any app) and get set up in the chat. Why: new members had no single command to start with, and setup already works through the live 1BB tools.
