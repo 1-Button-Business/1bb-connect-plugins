@@ -3,7 +3,7 @@
   "manifest_version": "0.4",
   "name": "1bb-connect",
   "display_name": "1BB Connect",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Connect your own 1BB account to Claude Desktop. Read your goals, training, Voice DNA and shared sources, and save drafts to your 1BB Library.",
   "long_description": "1BB Connect lets Claude read the parts of your 1BB account you chose to share when you made your connection key: your business brief, goals, training, Voice DNA and Second Brain sources. Claude can import a call into your Gallery, save drafts to your 1BB Library and prepare a post for your review. Claude can never approve or publish. You approve every post inside 1BB. Your key keeps working while your membership is active and stops if it ends.",
   "author": {
@@ -49,139 +49,423 @@
     },
     {
       "name": "onebb_get_context",
-      "description": "Read your main business brief."
+      "description": "Read the connected main business's brief."
     },
     {
       "name": "onebb_get_voice_rules",
-      "description": "Read a safe summary of your Voice DNA rules."
+      "description": "Read a bounded, safe projection of the connected member's Voice DNA."
     },
     {
       "name": "onebb_list_goals",
-      "description": "List your current goals (read only)."
+      "description": "List a bounded page of the connected member's goals."
     },
     {
       "name": "onebb_search_training",
-      "description": "Search available 1BB training."
+      "description": "Search active 1BB training by title and description."
     },
     {
       "name": "onebb_get_training",
-      "description": "Read one training module and your watch state."
+      "description": "Read one active 1BB training module and the connected member's watch state without exposing storage details or changing progress."
     },
     {
       "name": "onebb_search_sources",
-      "description": "Search the Second Brain sources you chose to share."
+      "description": "Search consented, active Second Brain sources."
     },
     {
       "name": "onebb_get_source",
-      "description": "Read one shared source with citation details."
+      "description": "Read one consented source with citation metadata."
     },
     {
       "name": "onebb_list_content",
-      "description": "List your Library content."
+      "description": "List a bounded page of the connected member's Library."
     },
     {
       "name": "onebb_get_content",
-      "description": "Read one Library draft and its version."
+      "description": "Read an exact Library draft and its version before editing or preparing a post."
     },
     {
       "name": "onebb_save_draft",
-      "description": "Save a post or carousel copy to your Library as an unapproved draft."
+      "description": "Save one platform's version of a post (or ordered carousel copy) to the member's Library."
     },
     {
       "name": "onebb_update_draft",
-      "description": "Update the caption of an unapproved draft."
+      "description": "Change any detail of an unapproved draft: the caption (body), the title, or the text of single carousel slides (by slide_number)."
     },
     {
       "name": "onebb_list_destinations",
-      "description": "List your connected social accounts."
+      "description": "List the member's connected accounts (no credentials): Instagram, LinkedIn, X, Facebook, TikTok, YouTube, Threads, Bluesky, Pinterest, Telegram and Google Business."
     },
     {
       "name": "onebb_prepare_publish",
-      "description": "Prepare one post for your review in 1BB. Does not schedule or publish."
-    },
-    {
-      "name": "onebb_get_publish_status",
-      "description": "Check the state of a post you prepared."
+      "description": "Line up one post on one account for the member's approval in 1BB."
     },
     {
       "name": "onebb_publish",
-      "description": "Post or schedule one post after you say yes in the chat. No 1BB visit needed."
+      "description": "Post or schedule one post on one account WITHOUT the 1BB review page."
     },
     {
       "name": "onebb_publish_everywhere",
-      "description": "Post one message on all your accounts at once, after you say yes. All go out together or none do."
+      "description": "Post the same idea on several accounts with ONE yes: 'post this everywhere'."
+    },
+    {
+      "name": "onebb_preview_video_post",
+      "description": "Show the member a video post before it goes anywhere."
+    },
+    {
+      "name": "onebb_post_video",
+      "description": "The one step for posting a video the member has: 'post my video', 'put this video everywhere'."
+    },
+    {
+      "name": "onebb_preview_words_post",
+      "description": "Show the member their own words as a post before it goes anywhere: 'post this quote', 'tweet this'."
+    },
+    {
+      "name": "onebb_post_words",
+      "description": "The one step for posting the member's own words: a quote, a thought, a tweet."
+    },
+    {
+      "name": "onebb_get_publish_status",
+      "description": "Read the current state of this connection's publish request."
     },
     {
       "name": "onebb_cancel_post",
-      "description": "Cancel a post before it goes out."
-    },
-    {
-      "name": "onebb_import_call",
-      "description": "Import a call transcript you chose into your 1BB Gallery."
-    },
-    {
-      "name": "onebb_list_photos",
-      "description": "List the photos in your 1BB Gallery."
-    },
-    {
-      "name": "onebb_add_photos",
-      "description": "Put Gallery photos on a draft, in order."
-    },
-    {
-      "name": "onebb_start_photo_upload",
-      "description": "Start adding a photo file to your Gallery."
-    },
-    {
-      "name": "onebb_finish_photo_upload",
-      "description": "Finish adding a photo file to your Gallery."
-    },
-    {
-      "name": "onebb_list_calls",
-      "description": "List the calls in your 1BB Gallery."
-    },
-    {
-      "name": "onebb_get_call",
-      "description": "Read one call and the posts made from it."
-    },
-    {
-      "name": "onebb_list_posts",
-      "description": "List your posts and how they did."
-    },
-    {
-      "name": "onebb_send_feedback",
-      "description": "Send a bug, idea or question to Drey."
-    },
-    {
-      "name": "onebb_help",
-      "description": "Plain answers about how 1BB Connect works."
+      "description": "Cancel a post before it goes out: give request_id for one this AI lined up, or post_id from onebb_list_posts for any scheduled post."
     },
     {
       "name": "onebb_reschedule_post",
-      "description": "Move a scheduled post to a new time."
+      "description": "Move one of the member's scheduled posts (post_id from onebb_list_posts) to a new exact time."
     },
     {
       "name": "onebb_retry_post",
-      "description": "Try a failed post again."
+      "description": "Try a failed post again (post_id from onebb_list_posts, status failed)."
     },
     {
       "name": "onebb_delete_draft",
-      "description": "Delete a draft. It can be brought back."
+      "description": "Delete a draft from the member's Library."
     },
     {
       "name": "onebb_restore_draft",
-      "description": "Bring back a deleted draft."
+      "description": "Bring back a draft deleted with onebb_delete_draft, using its content_id."
     },
     {
       "name": "onebb_set_photos",
-      "description": "Set, reorder or remove a draft's photos."
+      "description": "Set a written draft's photos to exactly this list, in posting order (2 or more post as a swipe set)."
     },
     {
       "name": "onebb_delete_gallery_item",
-      "description": "Remove a photo or call from the Gallery. It can be brought back."
+      "description": "Remove a photo, video or call from the member's Gallery (a photo_id, video_id from onebb_list_videos including a title box version, or call_id)."
     },
     {
       "name": "onebb_restore_gallery_item",
-      "description": "Bring back a removed photo or call."
+      "description": "Bring back a photo, video or call removed with onebb_delete_gallery_item."
+    },
+    {
+      "name": "onebb_list_photos",
+      "description": "List the member's 1BB Gallery photos, newest first, with preview links."
+    },
+    {
+      "name": "onebb_list_videos",
+      "description": "List the member's 1BB Gallery videos (b-roll clips and finished videos), newest first, with a thumbnail, length and edit_url."
+    },
+    {
+      "name": "onebb_set_video",
+      "description": "Put one Gallery video on an unapproved written post (caption, post or tweet), or take it off with video_id null."
+    },
+    {
+      "name": "onebb_set_title_box",
+      "description": "Put words on a Gallery video (1BB calls them a title box), change them, or take them off: \"add a title box\", \"change the text on my video\", \"take the words off\"."
+    },
+    {
+      "name": "onebb_add_photos",
+      "description": "Put 1 to 5 Gallery photos on an unapproved written draft, in the order given (2 or more post as a swipe set)."
+    },
+    {
+      "name": "onebb_start_photo_upload",
+      "description": "Only when you can run commands (Claude Code, Codex): start uploading a photo file the member gave you (jpg, png or webp, up to 50 MB)."
+    },
+    {
+      "name": "onebb_finish_photo_upload",
+      "description": "Finish a photo upload with its upload_ticket and the storageId the upload returned."
+    },
+    {
+      "name": "onebb_start_file_upload",
+      "description": "Only when you can run commands (Claude Code, Codex): start putting a video or audio file the member gave you into their Gallery, up to 1 GB."
+    },
+    {
+      "name": "onebb_finish_file_upload",
+      "description": "Finish a video or call upload after every part is sent."
+    },
+    {
+      "name": "onebb_set_call_speakers",
+      "description": "When onebb_get_call says 1BB doesn't know which speaker is the member: show the member each speaker's sample line from onebb_get_call, ask which one is them, and send their answer here."
+    },
+    {
+      "name": "onebb_mark_my_lines",
+      "description": "When onebb_get_call has lines_to_mark: the call came in as words with no names, so 1BB can't tell which lines the member said."
+    },
+    {
+      "name": "onebb_retry_call",
+      "description": "When a call failed (status failed in onebb_list_calls or onebb_get_call) and the member wants it tried again."
+    },
+    {
+      "name": "onebb_make_more_posts",
+      "description": "When the member wants more posts from a call that is already done (\"make more posts from my Tuesday call\")."
+    },
+    {
+      "name": "onebb_make_tweet_videos",
+      "description": "When the member wants their best tweets turned into videos (\"turn my best tweets into videos\", \"put my tweets on B-roll\")."
+    },
+    {
+      "name": "onebb_confirm_my_words",
+      "description": "When onebb_get_call lists tweets_on_hold: the member changed who is speaking on that call after these tweets were written, so 1BB holds them until the member vouches every word is theirs."
+    },
+    {
+      "name": "onebb_ban_words",
+      "description": "When the member says never to use a word or phrase (\"never say leverage\", \"stop using game-changer\")."
+    },
+    {
+      "name": "onebb_remove_voice_rule",
+      "description": "When the member wants a writing rule gone (\"you can say journey again\")."
+    },
+    {
+      "name": "onebb_start_doc_upload",
+      "description": "Only when you can run commands (Claude Code, Codex): start adding a document the member gave you (a sales deck, an offer, notes, an FAQ) to their Second Brain, so 1BB can write posts from it."
+    },
+    {
+      "name": "onebb_finish_doc_upload",
+      "description": "Finish adding a document with its upload_ticket and the storageId the upload returned."
+    },
+    {
+      "name": "onebb_list_posts",
+      "description": "List the member's posts."
+    },
+    {
+      "name": "onebb_find_best_posts",
+      "description": "Rank the member's own published posts on every connected account by the real numbers the platforms reported, best first."
+    },
+    {
+      "name": "onebb_send_feedback",
+      "description": "Send the member's feedback to the 1BB team: a bug (something not working), an idea, or a question, in the member's own plain words; never include passwords, keys or private client details."
+    },
+    {
+      "name": "onebb_help",
+      "description": "Plain answers about how 1BB Connect works: posting, photos, carousels, calls, analytics, tidying (delete and undo), feedback, limits."
+    },
+    {
+      "name": "onebb_guide",
+      "description": "Read 1BB's step-by-step guide for a job before you do it, as the instructions say: setup, connections, profile, posting, editing, videos, carousels, calls, approving, schedule, fixing, results."
+    },
+    {
+      "name": "onebb_list_calls",
+      "description": "List the member's calls and recordings in their Gallery (Zoom, Fathom, Granola, Notion, uploads), newest first, with short summaries."
+    },
+    {
+      "name": "onebb_call_sources",
+      "description": "Where the member's calls can come from."
+    },
+    {
+      "name": "onebb_week_from_call",
+      "description": "When the member says 'turn my last call into posts' or 'make me a week from my Zoom call'."
+    },
+    {
+      "name": "onebb_get_call",
+      "description": "Read one call: summary, notes, transcript (long calls are cut off) and the posts 1BB already made from it."
+    },
+    {
+      "name": "onebb_import_call",
+      "description": "Import one call the user chose into their 1BB Gallery."
+    },
+    {
+      "name": "onebb_whats_waiting",
+      "description": "One check for 'what needs me?', 'anything waiting?' or 'what should I do today?': posts waiting in the Approve deck, failed posts, Auto-Pilot plan cards to OK, calls where 1BB needs to know which voice is the member, tweets on hold, and carousels asked for in chat that 1BB couldn't make (with the reason)."
+    },
+    {
+      "name": "onebb_list_approve_deck",
+      "description": "Read the member's Approve deck: the posts 1BB made that wait for a decision (show waiting), the whole board, the trash, or spread_plan (when Auto-Pilot would post the approved ones)."
+    },
+    {
+      "name": "onebb_decide_draft",
+      "description": "Decide on one post in the Approve deck, like the swipe in 1BB: approve (Auto-Pilot may post it; needs member_said_yes and direct posting), changes (send it back with the member's note), later (hide it for 7 days) or revise (you changed its words here)."
+    },
+    {
+      "name": "onebb_discard_draft",
+      "description": "Discard one post from the Approve deck."
+    },
+    {
+      "name": "onebb_undo_decision",
+      "description": "Undo the latest decision on one post (approve, changes, later, revise or discard); it goes back into the deck."
+    },
+    {
+      "name": "onebb_bring_back_saved",
+      "description": "Bring every post the member saved for later back into the Approve deck now."
+    },
+    {
+      "name": "onebb_set_post_platforms",
+      "description": "Choose which accounts one post goes to (instagram, twitter for X, linkedin, threads, tiktok, youtube)."
+    },
+    {
+      "name": "onebb_approve_and_book",
+      "description": "Approve one post and book it at the next open Auto-Pilot time on every account it is set for, in one step."
+    },
+    {
+      "name": "onebb_undo_approve_and_book",
+      "description": "Take back onebb_approve_and_book: cancels that post and puts the draft back in the deck."
+    },
+    {
+      "name": "onebb_spread_approved",
+      "description": "Book posts at the member's Auto-Pilot times in one step, approving any still waiting."
+    },
+    {
+      "name": "onebb_change_slides",
+      "description": "When the member wants a slide added, removed or moved (\"add a slide after 2 about pricing\", \"drop the last slide\", \"make slide 4 the second one\")."
+    },
+    {
+      "name": "onebb_set_slide_media",
+      "description": "When the member wants a Gallery photo behind a slide, the same photo behind every slide (every_slide), or a slide to play a video (video_id from onebb_list_videos, 3 to 60 seconds; null takes it off)."
+    },
+    {
+      "name": "onebb_adjust_slide_photo",
+      "description": "When a slide's photo is sideways, cut off or too close (\"turn the cover photo\", \"show more of my face on slide 1\")."
+    },
+    {
+      "name": "onebb_make_carousel",
+      "description": "When the member wants a new carousel made for them: from one of their written posts (post), on Gallery photos they pick (photos), or in a 1BB look: a post on X (x_post), handwritten on paper (pen_paper), one short line (simple_message), a photo with an X post card (photo_x), or this or that (this_or_that)."
+    },
+    {
+      "name": "onebb_edit_scheduled_post",
+      "description": "Change the words on a post that is already scheduled (post_id from onebb_list_posts), right where it sits on the calendar: the main words, one platform's own words (platform_words), or the first comment."
+    },
+    {
+      "name": "onebb_change_post_accounts",
+      "description": "Change which accounts a scheduled post goes to (post_id from onebb_list_posts, accounts from onebb_list_destinations)."
+    },
+    {
+      "name": "onebb_get_autopilot",
+      "description": "Read Auto-Pilot, 1BB's posting schedule: on or off, timezone, and each rule (what, where, how often, what times) with in_words to show the member, plus the month plan's cards for the next days."
+    },
+    {
+      "name": "onebb_set_autopilot",
+      "description": "Change Auto-Pilot: turn it on or off, the timezone, best_times, Facebook Pages, or the rules (send the full new list; read it first with onebb_get_autopilot)."
+    },
+    {
+      "name": "onebb_plan_month",
+      "description": "Lay out the month: 1BB fills Auto-Pilot's open times with the member's approved posts as plan cards."
+    },
+    {
+      "name": "onebb_discard_plan",
+      "description": "Throw away every plan card waiting for review."
+    },
+    {
+      "name": "onebb_approve_plan",
+      "description": "Approve plan cards so they are scheduled at their times: one card (card_id), or every card in a range (from and to, at most 31 days, e.g."
+    },
+    {
+      "name": "onebb_post_plan_card_now",
+      "description": "Post one plan card in about a minute and a half instead of at its time."
+    },
+    {
+      "name": "onebb_move_plan_card",
+      "description": "Move a plan card to a new time (with UTC offset)."
+    },
+    {
+      "name": "onebb_remove_plan_card",
+      "description": "Take one card off the plan; the post stays in the Library and 1BB won't put it back on its own."
+    },
+    {
+      "name": "onebb_edit_plan_card",
+      "description": "Change a plan card before it is approved: which platforms it goes to, words for one platform (platform_words), or Instagram Trial Reel."
+    },
+    {
+      "name": "onebb_set_trial_reel",
+      "description": "Turn Instagram Trial Reel on or off for a scheduled Instagram video (post_id from onebb_list_posts)."
+    },
+    {
+      "name": "onebb_put_photo_on_post",
+      "description": "Put one of the member's Gallery photos on a scheduled post as its first photo (post_id from onebb_list_posts, photo_id from onebb_list_photos)."
+    },
+    {
+      "name": "onebb_check_post_status",
+      "description": "Ask the platform what really happened to a failed or stuck post (it may have gone out after all)."
+    },
+    {
+      "name": "onebb_list_duplicates",
+      "description": "Find posts that repeat the same words or the same photo or video, scheduled or posted in the last 30 days."
+    },
+    {
+      "name": "onebb_delete_post_copy",
+      "description": "Delete one scheduled, failed or cancelled post for good, usually a duplicate copy from onebb_list_duplicates."
+    },
+    {
+      "name": "onebb_keep_duplicates",
+      "description": "When the member wants the copies on purpose: mark a set from onebb_list_duplicates as fine so 1BB stops warning about it."
+    },
+    {
+      "name": "onebb_list_styles",
+      "description": "When the member wants a carousel to look different (\"try another style\", \"make it look like my brand\")."
+    },
+    {
+      "name": "onebb_set_carousel_style",
+      "description": "Switch a carousel to the style the member picked (style_id from onebb_list_styles), for the whole carousel or one slide (slide_number)."
+    },
+    {
+      "name": "onebb_suggest_photos",
+      "description": "When the member asks which photo fits a post or a carousel slide."
+    },
+    {
+      "name": "onebb_get_carousel_settings",
+      "description": "Read how their carousels look and get made: brand kit (colors, fonts, tagline, the name and @handle on slides), the profession lens and its choices, whether 1BB makes carousels from every new call (auto_visuals), the starred style new carousels use, and up to 3 favorite styles."
+    },
+    {
+      "name": "onebb_set_carousel_settings",
+      "description": "Change any of those after the member says yes to the exact change: brand_kit fields, profession (an id from the choices, or \"off\"), auto_visuals (on costs AI time on every call), starred_style_id (one of their own styles), or favorite_style_id with favorite true or false."
+    },
+    {
+      "name": "onebb_manage_style",
+      "description": "Save a copy of any style they can use as their own (save_copy, then it can be starred or edited), rename one of their own styles, or delete one (needs member_said_yes; a style a saved carousel uses can't be deleted until that carousel switches style)."
+    },
+    {
+      "name": "onebb_onboarding_status",
+      "description": "Shows how far the member's 1BB account setup is: 5 setup questions about their business, business name, time zone, social accounts, turning on AI, a call or document in their Second Brain, their first post, Auto-Pilot posting times, and whether this AI may post for them."
+    },
+    {
+      "name": "onebb_get_profile",
+      "description": "Shows the member's own details in one answer: their name, sign-in email and phone, their business name, description, location, website and Instagram handle, whether 1BB texts them and how often, and their plan with the date it renews or ends."
+    },
+    {
+      "name": "onebb_update_profile",
+      "description": "Changes the member's name or business details (business name, description, location, website, Instagram handle) after they said yes to the exact new words."
+    },
+    {
+      "name": "onebb_list_connected",
+      "description": "Shows everything hooked up to the member's 1BB account in one answer: their sign-in email and contact email, every social account they post on (several on one platform is fine) with how many posts are lined up for each, their Google Drive, and the apps that send their calls to 1BB (Zoom, Fathom, Fireflies, Granola, Plaud, Omi, Notion)."
+    },
+    {
+      "name": "onebb_list_drive_folders",
+      "description": "When the member wants to pick or change the Google Drive folder 1BB brings photos in from (\"use my Instagram photos folder\", \"which folder are you watching?\")."
+    },
+    {
+      "name": "onebb_set_photo_folder",
+      "description": "Make a folder from onebb_list_drive_folders the photo folder 1BB brings new photos in from."
+    },
+    {
+      "name": "onebb_add_connection",
+      "description": "Gives the link and the one thing to tap to connect a new social account, Google Drive, Zoom or another call app."
+    },
+    {
+      "name": "onebb_remove_connection",
+      "description": "Disconnects one social account, Google Drive, Zoom or a call app from the member's 1BB account."
+    },
+    {
+      "name": "onebb_set_contact_email",
+      "description": "Sets, changes or removes the contact email other 1BB members see in the Directory, after the member said yes to the exact email."
+    },
+    {
+      "name": "onebb_skip_setup_step",
+      "description": "Remembers that the member wants to skip a setup step or one setup question for now, so it shows as skipped (not done) and is not asked again."
+    },
+    {
+      "name": "onebb_save_setup_answer",
+      "description": "Saves one setup answer to the member's 1BB account after they said yes to the exact words: one of the 5 setup questions, their business name, or their time zone."
     }
   ],
   "compatibility": {

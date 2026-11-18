@@ -249,10 +249,13 @@ plugins/1bb/
   skills/onboarding | plan-my-day | write-in-my-voice | source-to-content | import-a-call | post-everywhere | check-my-numbers | tell-drey
 claude-desktop/
   manifest.json                      .mcpb manifest (key is a sensitive user_config field)
-  server/connect.mjs                 prebuilt stdio bridge (copied, not edited)
+  server/connect.mjs                 stdio bridge, built from 1bb-community (never edited by hand)
 configs/                             Codex config.toml, Cursor, Windsurf/Antigravity snippets
 scripts/validate.ts                  offline checks for every manifest and config
-scripts/smoke-bridge.ts              starts the bridge with FAKE keys, expects a clean refusal
+scripts/build-bridge.ts              rebuilds the bridge + manifest tool list from a 1bb-community checkout
+scripts/smoke-bridge.ts              starts the bridge with FAKE keys, expects a clean refusal, then lists tools against a fake API
+scripts/fake-backend.mjs             the fake 1BB API the smoke test loads (no network, no real key)
+docs/bridge-source.json              which 1bb-community commit the bridge came from, tool count, bundle hash
 docs/diagrams/connect-flow.mmd       flow diagram source
 ```
 
@@ -264,7 +267,7 @@ Needs Node 22.18 or newer (runs TypeScript directly, no install step).
 npm run validate        # offline checks
 npm run validate:mcpb   # official mcpb schema check (@anthropic-ai/mcpb pinned to 2.1.2)
 npm run pack:mcpb       # builds dist/1bb-connect.mcpb
-npm run smoke           # fake-key refusal test, offline
+npm run smoke           # fake-key refusal test + fake-API tools/list and onebb_guide test, offline
 npm run smoke -- --network   # adds one random well-formed fake key against the live API
 claude plugin validate .            # Claude Code marketplace
 claude plugin validate plugins/1bb  # Claude Code plugin
@@ -275,7 +278,16 @@ claude plugin validate plugins/1bb  # Claude Code plugin
 - **One plugin folder for Claude Code and Codex.** Codex reads `.codex-plugin/plugin.json` before `.claude-plugin/plugin.json`, and prefers `.agents/plugins/marketplace.json` over `.claude-plugin/marketplace.json`, so both apps share the same skills without copies.
 - **Codex uses the `.codex-plugin` compatibility format, not the newer portable `plugin.json` + `mcp.json`.** The portable format drops any `Authorization` header from the package and expects the key to come from a hosted connection setup. Key-based setups read the key from `ONEBB_CONNECTION_TOKEN`, which the compatibility `.mcp.json` supports through `bearer_token_env_var`. 1BB now has "Sign in with 1BB" (OAuth) for Claude on the web; moving Codex to the portable format is a separate, later step. Until then `npm run validate` fails if a root `plugin.json` appears.
 - **Claude Desktop uses the stdio bridge in an .mcpb**, because Claude Desktop's custom web connectors cannot send a fixed bearer header. The bridge talks to `https://fine-cat-456.convex.site` (fixed in the manifest).
-- **Bridge bundle provenance:** copied from `1bb-connect-beta/build/packages/connect-beta/dist/connect.mjs` (version 0.2.0, rebuilt 2026-10-24 with `onebb_import_call`), sha256 `21e241ef39602aeb71f4a8f7ddc56c4465f7763b83303267de96c63ce7d16efd`. Rebuild it in the main repo with `npm run connect:build`, copy it in, and update this hash.
+- **Rebuilding the Desktop bridge:** the bridge is the same MCP server as the hosted one (`src/lib/connect/` in 1bb-community), bundled for stdio. Whenever Connect tools, instructions or guides change on 1bb-community `dev`, rebuild it here so Desktop never drifts:
+
+  ```sh
+  gh repo clone 1-Button-Business/1bb-community /tmp/1bb-src -- --depth 80 --branch dev
+  (cd /tmp/1bb-src && npm ci --ignore-scripts)
+  npm run build:bridge -- /tmp/1bb-src   # bundles, copies, regenerates the manifest tool list, records commit + hash
+  npm run check                           # must pass; then bump versions and add a CHANGELOG entry
+  ```
+
+  `npm run validate` fails if the bundle was edited by hand or the manifest list no longer matches it. The bridge shows a member only the tools their key allows, and only tools the live 1BB server lists, so a tool shipped on `dev` (like `onebb_guide`) appears on Desktop once that server change reaches production.
 
 ### Docs used (checked 2026-10-24)
 

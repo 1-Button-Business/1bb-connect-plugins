@@ -2,6 +2,7 @@
 // Run: npm run validate   (Node 22.18+ runs TypeScript directly)
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
@@ -105,11 +106,9 @@ check(!existsSync(join(ROOT, PLUGIN, "plugin.json")), "no root plugin.json (woul
 console.log("Skills");
 const mcpb = readJson("claude-desktop/manifest.json");
 const toolNames = new Set((mcpb.tools as Json[]).map((t) => String(t.name)));
-// Tools the live 1BB server added after Desktop bridge 0.3.2 was built
-// (setup tools, and onebb_guide for the playbook guides, 2026-11-17).
-// Claude Code and Codex get them over the web connection. The onboarding
-// playbook tells the AI what to say when a connection does not list them.
-const skillTools = new Set([...toolNames, "onebb_onboarding_status", "onebb_save_setup_answer", "onebb_skip_setup_step", "onebb_set_contact_email", "onebb_add_connection", "onebb_list_connected", "onebb_set_autopilot", "onebb_guide"]);
+// Since 0.3.5 the manifest list is generated from the server's own catalog
+// (npm run build:bridge), so it is the full set every playbook may name.
+const skillTools = toolNames;
 const skillDirs = readdirSync(join(ROOT, PLUGIN, "skills"));
 check(skillDirs.length === 8, "eight playbook skills");
 for (const dir of skillDirs) {
@@ -135,7 +134,15 @@ check(env[ENV_VAR] === "${user_config.connection_token}", "token comes from user
 const tokenField = obj(obj(mcpb.user_config).connection_token);
 check(tokenField.sensitive === true && tokenField.required === true, "token field is sensitive and required");
 check(existsSync(join(ROOT, "claude-desktop", String(server.entry_point))), "entry point bundle exists");
-check(toolNames.size === 35, "35 tools listed");
+const source = readJson("docs/bridge-source.json");
+check(toolNames.size === (mcpb.tools as Json[]).length, "no duplicate tool names");
+check(toolNames.size === source.tools, `manifest lists the ${String(source.tools)} tools the bridge was built with`);
+check(toolNames.has("onebb_guide"), "onebb_guide listed");
+const bundle = readFileSync(join(ROOT, "claude-desktop", String(server.entry_point)), "utf8");
+check(createHash("sha256").update(bundle).digest("hex") === source.sha256, "bundle matches docs/bridge-source.json (rebuild with npm run build:bridge, never edit by hand)");
+const missing = [...toolNames].filter((t) => !new RegExp(`\\b${t}\\b`).test(bundle));
+check(missing.length === 0, `every listed tool is in the bundle${missing.length ? ` (missing: ${missing.join(", ")})` : ""}`);
+check(bundle.includes("CONNECT_GUIDES") && bundle.includes("onebb://guide/"), "bundle serves the guides and guide resources");
 
 console.log("Other client snippets");
 const cursor = obj(obj(readJson("configs/cursor-mcp.json").mcpServers)["1bb"]);

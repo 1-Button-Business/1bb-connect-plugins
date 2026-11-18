@@ -1,5 +1,17 @@
 # Changelog
 
+## [2026-11-17, version 0.3.5]
+### Changed
+- Claude Desktop bridge rebuilt from 1bb-community `dev` (commit a1a2070, PR #1919). It now knows all 106 Connect tools (was 35), including the setup tools and `onebb_guide`, plus the short instructions and the `onebb://guide/<topic>` guide resources. Why: Desktop members were missing every tool added since October and the new guides the hosted server's instructions point to.
+- The extension's tool list is generated from the server's own catalog instead of typed by hand. Why: the hand-typed list had drifted to 35 of 106.
+- The validator checks the bundle against `docs/bridge-source.json` (source commit, tool count, sha256) and that every listed tool is in the bundle, instead of expecting exactly 35. Why: catch a hand-edited or stale bundle before it ships.
+- Plugin, marketplace and extension versions bumped to 0.3.5.
+### Added
+- `npm run build:bridge -- <1bb-community checkout>`: one repeatable command that bundles the bridge, copies it in, regenerates the tool list and records where it came from. Why: so the Desktop bridge never drifts from the hosted server again.
+- `npm run smoke` also starts the bridge against a fake, offline 1BB API and checks that `tools/list` matches the manifest, `onebb_guide` answers on its own and the guides are listed as resources. Why: prove the bundle works without a real key.
+### Note
+- A member's Desktop shows only tools the live 1BB server allows for their key. Production does not list `onebb_guide` yet (checked 2026-11-17: hosted server and bridge both show 105 tools). It appears on Desktop automatically once PR #1919 reaches production; no new extension needed.
+
 ## [2026-11-17, version 0.3.4]
 ### Changed
 - The validator knows `onebb_guide`, the new read-only tool that serves 1BB's playbook as topic guides (setup, posting, carousels, calls, fixing and more). Why: some AI apps cut the server's long instructions short, so the live server now sends short instructions and the AI reads the guide for each job on demand.
