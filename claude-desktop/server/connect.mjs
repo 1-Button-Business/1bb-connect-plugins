@@ -6,7 +6,7 @@ var __export = (target, all) => {
     __defProp(target, name, { get: all[name], enumerable: true });
 };
 
-// node_modules/@modelcontextprotocol/server/dist/chunk-Br0eD_fh.mjs
+// ../cx/node_modules/@modelcontextprotocol/server/dist/chunk-Br0eD_fh.mjs
 var __create = Object.create;
 var __defProp2 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -46,7 +46,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   enumerable: true
 }) : target, mod));
 
-// node_modules/@modelcontextprotocol/server/dist/dialects-DoSzNhcb.mjs
+// ../cx/node_modules/@modelcontextprotocol/server/dist/dialects-DoSzNhcb.mjs
 var DRAFT_2020_12_URIS = /* @__PURE__ */ new Set(["https://json-schema.org/draft/2020-12/schema", "http://json-schema.org/draft/2020-12/schema"]);
 var DRAFT_2019_09_URIS = /* @__PURE__ */ new Set(["https://json-schema.org/draft/2019-09/schema", "http://json-schema.org/draft/2019-09/schema"]);
 var DRAFT_07_URIS = /* @__PURE__ */ new Set(["https://json-schema.org/draft-07/schema", "http://json-schema.org/draft-07/schema"]);
@@ -63,7 +63,7 @@ function declaredDialect(schema, remedy) {
   throw new Error(`JSON Schema declares an unsupported dialect ("$schema": "${schema.$schema.slice(0, 200)}"). The default validator supports JSON Schema 2020-12, 2019-09, draft-07, and draft-06; ${remedy}`);
 }
 
-// node_modules/zod/v4/classic/external.js
+// ../cx/node_modules/zod/v4/classic/external.js
 var external_exports = {};
 __export(external_exports, {
   $brand: () => $brand,
@@ -304,7 +304,7 @@ __export(external_exports, {
   xor: () => xor
 });
 
-// node_modules/zod/v4/core/index.js
+// ../cx/node_modules/zod/v4/core/index.js
 var core_exports2 = {};
 __export(core_exports2, {
   $ZodAny: () => $ZodAny,
@@ -582,7 +582,7 @@ __export(core_exports2, {
   version: () => version
 });
 
-// node_modules/zod/v4/core/core.js
+// ../cx/node_modules/zod/v4/core/core.js
 var NEVER = Object.freeze({
   status: "aborted"
 });
@@ -657,7 +657,7 @@ function config(newConfig) {
   return globalConfig;
 }
 
-// node_modules/zod/v4/core/util.js
+// ../cx/node_modules/zod/v4/core/util.js
 var util_exports = {};
 __export(util_exports, {
   BIGINT_FORMAT_RANGES: () => BIGINT_FORMAT_RANGES,
@@ -1336,7 +1336,7 @@ var Class = class {
   }
 };
 
-// node_modules/zod/v4/core/errors.js
+// ../cx/node_modules/zod/v4/core/errors.js
 var initializer = (inst, def) => {
   inst.name = "$ZodError";
   Object.defineProperty(inst, "_zod", {
@@ -1472,7 +1472,7 @@ function prettifyError(error48) {
   return lines.join("\n");
 }
 
-// node_modules/zod/v4/core/parse.js
+// ../cx/node_modules/zod/v4/core/parse.js
 var _parse = (_Err) => (schema, value, _ctx, _params) => {
   const ctx = _ctx ? Object.assign(_ctx, { async: false }) : { async: false };
   const result = schema._zod.run({ value, issues: [] }, ctx);
@@ -1560,7 +1560,7 @@ var _safeDecodeAsync = (_Err) => async (schema, value, _ctx) => {
 };
 var safeDecodeAsync = /* @__PURE__ */ _safeDecodeAsync($ZodRealError);
 
-// node_modules/zod/v4/core/regexes.js
+// ../cx/node_modules/zod/v4/core/regexes.js
 var regexes_exports = {};
 __export(regexes_exports, {
   base64: () => base64,
@@ -1717,7 +1717,7 @@ var sha512_hex = /^[0-9a-fA-F]{128}$/;
 var sha512_base64 = /* @__PURE__ */ fixedBase64(86, "==");
 var sha512_base64url = /* @__PURE__ */ fixedBase64url(86);
 
-// node_modules/zod/v4/core/checks.js
+// ../cx/node_modules/zod/v4/core/checks.js
 var $ZodCheck = /* @__PURE__ */ $constructor("$ZodCheck", (inst, def) => {
   var _a2;
   inst._zod ?? (inst._zod = {});
@@ -2265,7 +2265,7 @@ var $ZodCheckOverwrite = /* @__PURE__ */ $constructor("$ZodCheckOverwrite", (ins
   };
 });
 
-// node_modules/zod/v4/core/doc.js
+// ../cx/node_modules/zod/v4/core/doc.js
 var Doc = class {
   constructor(args = []) {
     this.content = [];
@@ -2301,14 +2301,14 @@ var Doc = class {
   }
 };
 
-// node_modules/zod/v4/core/versions.js
+// ../cx/node_modules/zod/v4/core/versions.js
 var version = {
   major: 4,
   minor: 3,
   patch: 6
 };
 
-// node_modules/zod/v4/core/schemas.js
+// ../cx/node_modules/zod/v4/core/schemas.js
 var $ZodType = /* @__PURE__ */ $constructor("$ZodType", (inst, def) => {
   var _a2;
   inst ?? (inst = {});
@@ -4279,7 +4279,7 @@ function handleRefineResult(result, payload, input, inst) {
   }
 }
 
-// node_modules/zod/v4/locales/index.js
+// ../cx/node_modules/zod/v4/locales/index.js
 var locales_exports = {};
 __export(locales_exports, {
   ar: () => ar_default,
@@ -4333,7 +4333,7 @@ __export(locales_exports, {
   zhTW: () => zh_TW_default
 });
 
-// node_modules/zod/v4/locales/ar.js
+// ../cx/node_modules/zod/v4/locales/ar.js
 var error = () => {
   const Sizable = {
     string: { unit: "\u062D\u0631\u0641", verb: "\u0623\u0646 \u064A\u062D\u0648\u064A" },
@@ -4440,7 +4440,7 @@ function ar_default() {
   };
 }
 
-// node_modules/zod/v4/locales/az.js
+// ../cx/node_modules/zod/v4/locales/az.js
 var error2 = () => {
   const Sizable = {
     string: { unit: "simvol", verb: "olmal\u0131d\u0131r" },
@@ -4546,7 +4546,7 @@ function az_default() {
   };
 }
 
-// node_modules/zod/v4/locales/be.js
+// ../cx/node_modules/zod/v4/locales/be.js
 function getBelarusianPlural(count, one, few, many) {
   const absCount = Math.abs(count);
   const lastDigit = absCount % 10;
@@ -4703,7 +4703,7 @@ function be_default() {
   };
 }
 
-// node_modules/zod/v4/locales/bg.js
+// ../cx/node_modules/zod/v4/locales/bg.js
 var error4 = () => {
   const Sizable = {
     string: { unit: "\u0441\u0438\u043C\u0432\u043E\u043B\u0430", verb: "\u0434\u0430 \u0441\u044A\u0434\u044A\u0440\u0436\u0430" },
@@ -4824,7 +4824,7 @@ function bg_default() {
   };
 }
 
-// node_modules/zod/v4/locales/ca.js
+// ../cx/node_modules/zod/v4/locales/ca.js
 var error5 = () => {
   const Sizable = {
     string: { unit: "car\xE0cters", verb: "contenir" },
@@ -4933,7 +4933,7 @@ function ca_default() {
   };
 }
 
-// node_modules/zod/v4/locales/cs.js
+// ../cx/node_modules/zod/v4/locales/cs.js
 var error6 = () => {
   const Sizable = {
     string: { unit: "znak\u016F", verb: "m\xEDt" },
@@ -5045,7 +5045,7 @@ function cs_default() {
   };
 }
 
-// node_modules/zod/v4/locales/da.js
+// ../cx/node_modules/zod/v4/locales/da.js
 var error7 = () => {
   const Sizable = {
     string: { unit: "tegn", verb: "havde" },
@@ -5161,7 +5161,7 @@ function da_default() {
   };
 }
 
-// node_modules/zod/v4/locales/de.js
+// ../cx/node_modules/zod/v4/locales/de.js
 var error8 = () => {
   const Sizable = {
     string: { unit: "Zeichen", verb: "zu haben" },
@@ -5270,7 +5270,7 @@ function de_default() {
   };
 }
 
-// node_modules/zod/v4/locales/en.js
+// ../cx/node_modules/zod/v4/locales/en.js
 var error9 = () => {
   const Sizable = {
     string: { unit: "characters", verb: "to have" },
@@ -5379,7 +5379,7 @@ function en_default() {
   };
 }
 
-// node_modules/zod/v4/locales/eo.js
+// ../cx/node_modules/zod/v4/locales/eo.js
 var error10 = () => {
   const Sizable = {
     string: { unit: "karaktrojn", verb: "havi" },
@@ -5489,7 +5489,7 @@ function eo_default() {
   };
 }
 
-// node_modules/zod/v4/locales/es.js
+// ../cx/node_modules/zod/v4/locales/es.js
 var error11 = () => {
   const Sizable = {
     string: { unit: "caracteres", verb: "tener" },
@@ -5622,7 +5622,7 @@ function es_default() {
   };
 }
 
-// node_modules/zod/v4/locales/fa.js
+// ../cx/node_modules/zod/v4/locales/fa.js
 var error12 = () => {
   const Sizable = {
     string: { unit: "\u06A9\u0627\u0631\u0627\u06A9\u062A\u0631", verb: "\u062F\u0627\u0634\u062A\u0647 \u0628\u0627\u0634\u062F" },
@@ -5737,7 +5737,7 @@ function fa_default() {
   };
 }
 
-// node_modules/zod/v4/locales/fi.js
+// ../cx/node_modules/zod/v4/locales/fi.js
 var error13 = () => {
   const Sizable = {
     string: { unit: "merkki\xE4", subject: "merkkijonon" },
@@ -5850,7 +5850,7 @@ function fi_default() {
   };
 }
 
-// node_modules/zod/v4/locales/fr.js
+// ../cx/node_modules/zod/v4/locales/fr.js
 var error14 = () => {
   const Sizable = {
     string: { unit: "caract\xE8res", verb: "avoir" },
@@ -5959,7 +5959,7 @@ function fr_default() {
   };
 }
 
-// node_modules/zod/v4/locales/fr-CA.js
+// ../cx/node_modules/zod/v4/locales/fr-CA.js
 var error15 = () => {
   const Sizable = {
     string: { unit: "caract\xE8res", verb: "avoir" },
@@ -6067,7 +6067,7 @@ function fr_CA_default() {
   };
 }
 
-// node_modules/zod/v4/locales/he.js
+// ../cx/node_modules/zod/v4/locales/he.js
 var error16 = () => {
   const TypeNames = {
     string: { label: "\u05DE\u05D7\u05E8\u05D5\u05D6\u05EA", gender: "f" },
@@ -6262,7 +6262,7 @@ function he_default() {
   };
 }
 
-// node_modules/zod/v4/locales/hu.js
+// ../cx/node_modules/zod/v4/locales/hu.js
 var error17 = () => {
   const Sizable = {
     string: { unit: "karakter", verb: "legyen" },
@@ -6371,7 +6371,7 @@ function hu_default() {
   };
 }
 
-// node_modules/zod/v4/locales/hy.js
+// ../cx/node_modules/zod/v4/locales/hy.js
 function getArmenianPlural(count, one, many) {
   return Math.abs(count) === 1 ? one : many;
 }
@@ -6519,7 +6519,7 @@ function hy_default() {
   };
 }
 
-// node_modules/zod/v4/locales/id.js
+// ../cx/node_modules/zod/v4/locales/id.js
 var error19 = () => {
   const Sizable = {
     string: { unit: "karakter", verb: "memiliki" },
@@ -6626,7 +6626,7 @@ function id_default() {
   };
 }
 
-// node_modules/zod/v4/locales/is.js
+// ../cx/node_modules/zod/v4/locales/is.js
 var error20 = () => {
   const Sizable = {
     string: { unit: "stafi", verb: "a\xF0 hafa" },
@@ -6736,7 +6736,7 @@ function is_default() {
   };
 }
 
-// node_modules/zod/v4/locales/it.js
+// ../cx/node_modules/zod/v4/locales/it.js
 var error21 = () => {
   const Sizable = {
     string: { unit: "caratteri", verb: "avere" },
@@ -6845,7 +6845,7 @@ function it_default() {
   };
 }
 
-// node_modules/zod/v4/locales/ja.js
+// ../cx/node_modules/zod/v4/locales/ja.js
 var error22 = () => {
   const Sizable = {
     string: { unit: "\u6587\u5B57", verb: "\u3067\u3042\u308B" },
@@ -6953,7 +6953,7 @@ function ja_default() {
   };
 }
 
-// node_modules/zod/v4/locales/ka.js
+// ../cx/node_modules/zod/v4/locales/ka.js
 var error23 = () => {
   const Sizable = {
     string: { unit: "\u10E1\u10D8\u10DB\u10D1\u10DD\u10DA\u10DD", verb: "\u10E3\u10DC\u10D3\u10D0 \u10E8\u10D4\u10D8\u10EA\u10D0\u10D5\u10D3\u10D4\u10E1" },
@@ -7066,7 +7066,7 @@ function ka_default() {
   };
 }
 
-// node_modules/zod/v4/locales/km.js
+// ../cx/node_modules/zod/v4/locales/km.js
 var error24 = () => {
   const Sizable = {
     string: { unit: "\u178F\u17BD\u17A2\u1780\u17D2\u179F\u179A", verb: "\u1782\u17BD\u179A\u1798\u17B6\u1793" },
@@ -7177,12 +7177,12 @@ function km_default() {
   };
 }
 
-// node_modules/zod/v4/locales/kh.js
+// ../cx/node_modules/zod/v4/locales/kh.js
 function kh_default() {
   return km_default();
 }
 
-// node_modules/zod/v4/locales/ko.js
+// ../cx/node_modules/zod/v4/locales/ko.js
 var error25 = () => {
   const Sizable = {
     string: { unit: "\uBB38\uC790", verb: "to have" },
@@ -7294,7 +7294,7 @@ function ko_default() {
   };
 }
 
-// node_modules/zod/v4/locales/lt.js
+// ../cx/node_modules/zod/v4/locales/lt.js
 var capitalizeFirstCharacter = (text) => {
   return text.charAt(0).toUpperCase() + text.slice(1);
 };
@@ -7498,7 +7498,7 @@ function lt_default() {
   };
 }
 
-// node_modules/zod/v4/locales/mk.js
+// ../cx/node_modules/zod/v4/locales/mk.js
 var error27 = () => {
   const Sizable = {
     string: { unit: "\u0437\u043D\u0430\u0446\u0438", verb: "\u0434\u0430 \u0438\u043C\u0430\u0430\u0442" },
@@ -7608,7 +7608,7 @@ function mk_default() {
   };
 }
 
-// node_modules/zod/v4/locales/ms.js
+// ../cx/node_modules/zod/v4/locales/ms.js
 var error28 = () => {
   const Sizable = {
     string: { unit: "aksara", verb: "mempunyai" },
@@ -7716,7 +7716,7 @@ function ms_default() {
   };
 }
 
-// node_modules/zod/v4/locales/nl.js
+// ../cx/node_modules/zod/v4/locales/nl.js
 var error29 = () => {
   const Sizable = {
     string: { unit: "tekens", verb: "heeft" },
@@ -7827,7 +7827,7 @@ function nl_default() {
   };
 }
 
-// node_modules/zod/v4/locales/no.js
+// ../cx/node_modules/zod/v4/locales/no.js
 var error30 = () => {
   const Sizable = {
     string: { unit: "tegn", verb: "\xE5 ha" },
@@ -7936,7 +7936,7 @@ function no_default() {
   };
 }
 
-// node_modules/zod/v4/locales/ota.js
+// ../cx/node_modules/zod/v4/locales/ota.js
 var error31 = () => {
   const Sizable = {
     string: { unit: "harf", verb: "olmal\u0131d\u0131r" },
@@ -8046,7 +8046,7 @@ function ota_default() {
   };
 }
 
-// node_modules/zod/v4/locales/ps.js
+// ../cx/node_modules/zod/v4/locales/ps.js
 var error32 = () => {
   const Sizable = {
     string: { unit: "\u062A\u0648\u06A9\u064A", verb: "\u0648\u0644\u0631\u064A" },
@@ -8161,7 +8161,7 @@ function ps_default() {
   };
 }
 
-// node_modules/zod/v4/locales/pl.js
+// ../cx/node_modules/zod/v4/locales/pl.js
 var error33 = () => {
   const Sizable = {
     string: { unit: "znak\xF3w", verb: "mie\u0107" },
@@ -8271,7 +8271,7 @@ function pl_default() {
   };
 }
 
-// node_modules/zod/v4/locales/pt.js
+// ../cx/node_modules/zod/v4/locales/pt.js
 var error34 = () => {
   const Sizable = {
     string: { unit: "caracteres", verb: "ter" },
@@ -8380,7 +8380,7 @@ function pt_default() {
   };
 }
 
-// node_modules/zod/v4/locales/ru.js
+// ../cx/node_modules/zod/v4/locales/ru.js
 function getRussianPlural(count, one, few, many) {
   const absCount = Math.abs(count);
   const lastDigit = absCount % 10;
@@ -8537,7 +8537,7 @@ function ru_default() {
   };
 }
 
-// node_modules/zod/v4/locales/sl.js
+// ../cx/node_modules/zod/v4/locales/sl.js
 var error36 = () => {
   const Sizable = {
     string: { unit: "znakov", verb: "imeti" },
@@ -8647,7 +8647,7 @@ function sl_default() {
   };
 }
 
-// node_modules/zod/v4/locales/sv.js
+// ../cx/node_modules/zod/v4/locales/sv.js
 var error37 = () => {
   const Sizable = {
     string: { unit: "tecken", verb: "att ha" },
@@ -8758,7 +8758,7 @@ function sv_default() {
   };
 }
 
-// node_modules/zod/v4/locales/ta.js
+// ../cx/node_modules/zod/v4/locales/ta.js
 var error38 = () => {
   const Sizable = {
     string: { unit: "\u0B8E\u0BB4\u0BC1\u0BA4\u0BCD\u0BA4\u0BC1\u0B95\u0BCD\u0B95\u0BB3\u0BCD", verb: "\u0B95\u0BCA\u0BA3\u0BCD\u0B9F\u0BBF\u0BB0\u0BC1\u0B95\u0BCD\u0B95 \u0BB5\u0BC7\u0BA3\u0BCD\u0B9F\u0BC1\u0BAE\u0BCD" },
@@ -8869,7 +8869,7 @@ function ta_default() {
   };
 }
 
-// node_modules/zod/v4/locales/th.js
+// ../cx/node_modules/zod/v4/locales/th.js
 var error39 = () => {
   const Sizable = {
     string: { unit: "\u0E15\u0E31\u0E27\u0E2D\u0E31\u0E01\u0E29\u0E23", verb: "\u0E04\u0E27\u0E23\u0E21\u0E35" },
@@ -8980,7 +8980,7 @@ function th_default() {
   };
 }
 
-// node_modules/zod/v4/locales/tr.js
+// ../cx/node_modules/zod/v4/locales/tr.js
 var error40 = () => {
   const Sizable = {
     string: { unit: "karakter", verb: "olmal\u0131" },
@@ -9086,7 +9086,7 @@ function tr_default() {
   };
 }
 
-// node_modules/zod/v4/locales/uk.js
+// ../cx/node_modules/zod/v4/locales/uk.js
 var error41 = () => {
   const Sizable = {
     string: { unit: "\u0441\u0438\u043C\u0432\u043E\u043B\u0456\u0432", verb: "\u043C\u0430\u0442\u0438\u043C\u0435" },
@@ -9195,12 +9195,12 @@ function uk_default() {
   };
 }
 
-// node_modules/zod/v4/locales/ua.js
+// ../cx/node_modules/zod/v4/locales/ua.js
 function ua_default() {
   return uk_default();
 }
 
-// node_modules/zod/v4/locales/ur.js
+// ../cx/node_modules/zod/v4/locales/ur.js
 var error42 = () => {
   const Sizable = {
     string: { unit: "\u062D\u0631\u0648\u0641", verb: "\u06C1\u0648\u0646\u0627" },
@@ -9311,7 +9311,7 @@ function ur_default() {
   };
 }
 
-// node_modules/zod/v4/locales/uz.js
+// ../cx/node_modules/zod/v4/locales/uz.js
 var error43 = () => {
   const Sizable = {
     string: { unit: "belgi", verb: "bo\u2018lishi kerak" },
@@ -9421,7 +9421,7 @@ function uz_default() {
   };
 }
 
-// node_modules/zod/v4/locales/vi.js
+// ../cx/node_modules/zod/v4/locales/vi.js
 var error44 = () => {
   const Sizable = {
     string: { unit: "k\xFD t\u1EF1", verb: "c\xF3" },
@@ -9530,7 +9530,7 @@ function vi_default() {
   };
 }
 
-// node_modules/zod/v4/locales/zh-CN.js
+// ../cx/node_modules/zod/v4/locales/zh-CN.js
 var error45 = () => {
   const Sizable = {
     string: { unit: "\u5B57\u7B26", verb: "\u5305\u542B" },
@@ -9640,7 +9640,7 @@ function zh_CN_default() {
   };
 }
 
-// node_modules/zod/v4/locales/zh-TW.js
+// ../cx/node_modules/zod/v4/locales/zh-TW.js
 var error46 = () => {
   const Sizable = {
     string: { unit: "\u5B57\u5143", verb: "\u64C1\u6709" },
@@ -9748,7 +9748,7 @@ function zh_TW_default() {
   };
 }
 
-// node_modules/zod/v4/locales/yo.js
+// ../cx/node_modules/zod/v4/locales/yo.js
 var error47 = () => {
   const Sizable = {
     string: { unit: "\xE0mi", verb: "n\xED" },
@@ -9856,7 +9856,7 @@ function yo_default() {
   };
 }
 
-// node_modules/zod/v4/core/registries.js
+// ../cx/node_modules/zod/v4/core/registries.js
 var _a;
 var $output = Symbol("ZodOutput");
 var $input = Symbol("ZodInput");
@@ -9906,7 +9906,7 @@ function registry() {
 (_a = globalThis).__zod_globalRegistry ?? (_a.__zod_globalRegistry = registry());
 var globalRegistry = globalThis.__zod_globalRegistry;
 
-// node_modules/zod/v4/core/api.js
+// ../cx/node_modules/zod/v4/core/api.js
 // @__NO_SIDE_EFFECTS__
 function _string(Class2, params) {
   return new Class2({
@@ -10945,7 +10945,7 @@ function _stringFormat(Class2, format, fnOrRegex, _params = {}) {
   return inst;
 }
 
-// node_modules/zod/v4/core/to-json-schema.js
+// ../cx/node_modules/zod/v4/core/to-json-schema.js
 function initializeContext(params) {
   let target = params?.target ?? "draft-2020-12";
   if (target === "draft-4")
@@ -11297,7 +11297,7 @@ var createStandardJSONSchemaMethod = (schema, io, processors = {}) => (params) =
   return finalize(ctx, schema);
 };
 
-// node_modules/zod/v4/core/json-schema-processors.js
+// ../cx/node_modules/zod/v4/core/json-schema-processors.js
 var formatMap = {
   guid: "uuid",
   url: "uri",
@@ -11848,7 +11848,7 @@ function toJSONSchema(input, params) {
   return finalize(ctx, input);
 }
 
-// node_modules/zod/v4/core/json-schema-generator.js
+// ../cx/node_modules/zod/v4/core/json-schema-generator.js
 var JSONSchemaGenerator = class {
   /** @deprecated Access via ctx instead */
   get metadataRegistry() {
@@ -11923,10 +11923,10 @@ var JSONSchemaGenerator = class {
   }
 };
 
-// node_modules/zod/v4/core/json-schema.js
+// ../cx/node_modules/zod/v4/core/json-schema.js
 var json_schema_exports = {};
 
-// node_modules/zod/v4/classic/schemas.js
+// ../cx/node_modules/zod/v4/classic/schemas.js
 var schemas_exports2 = {};
 __export(schemas_exports2, {
   ZodAny: () => ZodAny,
@@ -12095,7 +12095,7 @@ __export(schemas_exports2, {
   xor: () => xor
 });
 
-// node_modules/zod/v4/classic/checks.js
+// ../cx/node_modules/zod/v4/classic/checks.js
 var checks_exports2 = {};
 __export(checks_exports2, {
   endsWith: () => _endsWith,
@@ -12129,7 +12129,7 @@ __export(checks_exports2, {
   uppercase: () => _uppercase
 });
 
-// node_modules/zod/v4/classic/iso.js
+// ../cx/node_modules/zod/v4/classic/iso.js
 var iso_exports = {};
 __export(iso_exports, {
   ZodISODate: () => ZodISODate,
@@ -12170,7 +12170,7 @@ function duration2(params) {
   return _isoDuration(ZodISODuration, params);
 }
 
-// node_modules/zod/v4/classic/errors.js
+// ../cx/node_modules/zod/v4/classic/errors.js
 var initializer2 = (inst, issues) => {
   $ZodError.init(inst, issues);
   inst.name = "ZodError";
@@ -12210,7 +12210,7 @@ var ZodRealError = $constructor("ZodError", initializer2, {
   Parent: Error
 });
 
-// node_modules/zod/v4/classic/parse.js
+// ../cx/node_modules/zod/v4/classic/parse.js
 var parse2 = /* @__PURE__ */ _parse(ZodRealError);
 var parseAsync2 = /* @__PURE__ */ _parseAsync(ZodRealError);
 var safeParse2 = /* @__PURE__ */ _safeParse(ZodRealError);
@@ -12224,7 +12224,7 @@ var safeDecode2 = /* @__PURE__ */ _safeDecode(ZodRealError);
 var safeEncodeAsync2 = /* @__PURE__ */ _safeEncodeAsync(ZodRealError);
 var safeDecodeAsync2 = /* @__PURE__ */ _safeDecodeAsync(ZodRealError);
 
-// node_modules/zod/v4/classic/schemas.js
+// ../cx/node_modules/zod/v4/classic/schemas.js
 var ZodType = /* @__PURE__ */ $constructor("ZodType", (inst, def) => {
   $ZodType.init(inst, def);
   Object.assign(inst["~standard"], {
@@ -13303,7 +13303,7 @@ function preprocess(fn, schema) {
   return pipe(transform(fn), schema);
 }
 
-// node_modules/zod/v4/classic/compat.js
+// ../cx/node_modules/zod/v4/classic/compat.js
 var ZodIssueCode = {
   invalid_type: "invalid_type",
   too_big: "too_big",
@@ -13329,7 +13329,7 @@ var ZodFirstPartyTypeKind;
 /* @__PURE__ */ (function(ZodFirstPartyTypeKind2) {
 })(ZodFirstPartyTypeKind || (ZodFirstPartyTypeKind = {}));
 
-// node_modules/zod/v4/classic/from-json-schema.js
+// ../cx/node_modules/zod/v4/classic/from-json-schema.js
 var z = {
   ...schemas_exports2,
   ...checks_exports2,
@@ -13803,7 +13803,7 @@ function fromJSONSchema(schema, params) {
   return convertSchema(schema, ctx);
 }
 
-// node_modules/zod/v4/classic/coerce.js
+// ../cx/node_modules/zod/v4/classic/coerce.js
 var coerce_exports = {};
 __export(coerce_exports, {
   bigint: () => bigint3,
@@ -13828,10 +13828,10 @@ function date4(params) {
   return _coercedDate(ZodDate, params);
 }
 
-// node_modules/zod/v4/classic/external.js
+// ../cx/node_modules/zod/v4/classic/external.js
 config(en_default());
 
-// node_modules/@modelcontextprotocol/core/dist/auth-CUe6YdwF.mjs
+// ../cx/node_modules/@modelcontextprotocol/core/dist/auth-CUe6YdwF.mjs
 var LATEST_PROTOCOL_VERSION = "2025-11-25";
 var SUPPORTED_PROTOCOL_VERSIONS = [
   LATEST_PROTOCOL_VERSION,
@@ -14769,7 +14769,7 @@ var OAuthTokenRevocationRequestSchema = object({
   token_type_hint: string2().optional()
 }).strip();
 
-// node_modules/@modelcontextprotocol/server/dist/src-CX2iR2pK.mjs
+// ../cx/node_modules/@modelcontextprotocol/server/dist/src-CX2iR2pK.mjs
 var BRANDS = Symbol.for("mcp.sdk.errorBrands");
 function stampErrorBrands(instance, ctor) {
   const brands = /* @__PURE__ */ new Set();
@@ -19336,7 +19336,7 @@ function normalizeRawShapeSchema(schema) {
   return schema;
 }
 
-// node_modules/@modelcontextprotocol/server/dist/ajvProvider-CEoC__sr.mjs
+// ../cx/node_modules/@modelcontextprotocol/server/dist/ajvProvider-CEoC__sr.mjs
 var require_code$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
   Object.defineProperty(exports, "__esModule", { value: true });
   exports.regexpCode = exports.getEsmExportName = exports.getProperty = exports.safeStringify = exports.stringify = exports.strConcat = exports.addCodeArg = exports.str = exports._ = exports.nil = exports._Code = exports.Name = exports.IDENTIFIER = exports._CodeOrName = void 0;
@@ -26346,10 +26346,10 @@ var AjvJsonSchemaValidator = class {
 };
 var Ajv = import_ajv.Ajv;
 
-// node_modules/@modelcontextprotocol/server/dist/shimsNode.mjs
+// ../cx/node_modules/@modelcontextprotocol/server/dist/shimsNode.mjs
 import process3 from "node:process";
 
-// node_modules/@modelcontextprotocol/server/dist/mcp-DXXb3Vv3.mjs
+// ../cx/node_modules/@modelcontextprotocol/server/dist/mcp-DXXb3Vv3.mjs
 var COMPLETABLE_SYMBOL = Symbol.for("mcp.completable");
 function isCompletable(schema) {
   return !!schema && typeof schema === "object" && COMPLETABLE_SYMBOL in schema;
@@ -27680,7 +27680,7 @@ function unwrapOptionalSchema(schema) {
   return schema.def?.innerType ?? schema;
 }
 
-// node_modules/@modelcontextprotocol/server/dist/stdio.mjs
+// ../cx/node_modules/@modelcontextprotocol/server/dist/stdio.mjs
 var StdioServerTransport = class {
   _readBuffer;
   _started = false;
@@ -27788,7 +27788,7 @@ The ai_connectors step is about their own AI app, not 1BB: adding connectors the
   connections: {
     title: "What's connected",
     when: "they ask what's connected, or want to add, fix or remove an account, call app, Drive folder or email",
-    text: `WHAT'S CONNECTED: For "what's connected?", "which accounts do I have?", "add my other Instagram", "connect my Zoom", "remove that account" or "change my email", never send them off to hunt in 1BB. onebb_list_connected shows it all as one checklist: emails, every social account, Google Drive and call apps, each marked working or not. To add one, or fix one that stopped working, onebb_add_connection gives the link and the one thing to tap; when they say done, show onebb_list_connected again to confirm. To remove one, name it, say how many lined-up posts use it and that it only comes back by connecting again, get a yes, then onebb_remove_connection. The contact email other members see changes with onebb_set_contact_email after a yes. To change the Drive folder 1BB takes photos from, list folders with onebb_list_drive_folders and save their pick with onebb_set_photo_folder after a yes. The sign-in email can't change from chat yet: offer to send that to Drey (onebb_send_feedback).`
+    text: `WHAT'S CONNECTED: For "what's connected?", "which accounts do I have?", "add my other Instagram", "connect my Zoom", "remove that account" or "change my email", never send them off to hunt in 1BB. onebb_list_connected shows it all as one checklist: emails, every social account, Google Drive and call apps, each marked working or not. To add one, or fix one that stopped working, onebb_add_connection gives the link and the one thing to tap; when they say done, show onebb_list_connected again to confirm. To remove one, name it, say how many lined-up posts use it and that it only comes back by connecting again, get a yes, then onebb_remove_connection. The contact email other members see changes with onebb_set_contact_email after a yes. Their other email addresses (not for signing in) are added, verified with the 6-digit code sent to that inbox, and removed with onebb_manage_email after a yes. A member can connect as many Google Drive, Zoom and call app accounts as they want; adding one keeps the others, and to remove one of several send its connection_id. To change the Drive folder 1BB takes photos from, list folders with onebb_list_drive_folders and save their pick with onebb_set_photo_folder after a yes. To change the email they sign in with, get a yes to the exact new email and send it with onebb_change_sign_in_email. That only asks: give them approve_url, where they tap Send code and enter the code from the new inbox and their current password themselves. Never ask for that code or their password in chat.`
   },
   profile: {
     title: "My details and plan",
@@ -28482,12 +28482,26 @@ var toolSchemas = {
     what: connectionKind,
     account_id: id.optional().describe("Only for social_account: its account_id from onebb_list_connected."),
     app: callApp.optional().describe("Only for call_app: which call app to remove."),
+    connection_id: id.optional().describe("For google_drive, zoom or call_app when the member has more than one: the connection_id from onebb_list_connected of the one to remove. The others stay."),
+    member_said_yes: memberSaidYes
+  }).strict(),
+  onebb_manage_email: external_exports.object({
+    idempotency_key: key,
+    action: external_exports.enum(["add", "verify", "send_new_code", "remove"]).describe("add mails a 6-digit code to a new email; verify checks the code the member read from that inbox; send_new_code mails a fresh code; remove takes an extra email off."),
+    email: external_exports.string().trim().max(254).email().optional().describe("Only for add: the email to add."),
+    email_id: id.optional().describe("For verify, send_new_code and remove: the email_id from onebb_list_connected (emails.extra_emails)."),
+    code: external_exports.string().trim().regex(/^\d{6}$/, "The code is 6 digits.").optional().describe("Only for verify: the 6-digit code the member got by email."),
     member_said_yes: memberSaidYes
   }).strict(),
   onebb_set_contact_email: external_exports.object({
     idempotency_key: key,
     email: external_exports.string().trim().max(254).email().optional().describe("The email other 1BB members should see."),
     remove: external_exports.boolean().default(false).describe("true takes the contact email off instead."),
+    member_said_yes: memberSaidYes
+  }).strict(),
+  onebb_change_sign_in_email: external_exports.object({
+    idempotency_key: key,
+    email: external_exports.string().trim().max(254).email().describe("The new email the member wants to sign in with."),
     member_said_yes: memberSaidYes
   }).strict(),
   onebb_skip_setup_step: external_exports.object({
@@ -28642,6 +28656,8 @@ var toolTitles = {
   onebb_add_connection: "Connect something new",
   onebb_remove_connection: "Remove a connection",
   onebb_set_contact_email: "Change contact email",
+  onebb_manage_email: "Add or remove my other emails",
+  onebb_change_sign_in_email: "Change the email I sign in with",
   onebb_save_setup_answer: "Save a setup answer",
   onebb_skip_setup_step: "Skip a setup step for now"
 };
@@ -28744,12 +28760,14 @@ var toolDescriptions = {
   onebb_onboarding_status: "Shows how far the member's 1BB account setup is: 5 setup questions about their business, business name, time zone, social accounts, turning on AI, a call or document in their Second Brain, their first post, Auto-Pilot posting times, and whether this AI may post for them. Each step's state is done, skipped or to_do, with whether it can be done in this chat (in_chat) or needs a link into 1BB. next_question gives the next setup question that is not skipped, with an example answer.",
   onebb_get_profile: `Shows the member's own details in one answer: their name, sign-in email and phone, their business name, description, location, website and Instagram handle, whether 1BB texts them and how often, and their plan with the date it renews or ends. Use it for "what's my plan?", "when does it renew?", "what do you have for my business?". The plan and text settings are view only here.`,
   onebb_update_profile: "Changes the member's name or business details (business name, description, location, website, Instagram handle) after they said yes to the exact new words. Only the fields you send change. Show the before and after. It does not change their email, phone, text settings or plan.",
-  onebb_list_drive_folders: 'When the member wants to pick or change the Google Drive folder 1BB brings photos in from ("use my Instagram photos folder", "which folder are you watching?"). Lists folders at the top of their Drive, inside one folder (parent_folder_id), or by name (search). The first call starts the lookup and returns status listing: call again with the same input after a few seconds for the folders. current_photo_folder is the one 1BB watches now. 1BB watches one photo folder.',
+  onebb_list_drive_folders: 'When the member wants to pick or change the Google Drive folder 1BB brings photos in from ("use my Instagram photos folder", "which folder are you watching?"). Lists folders at the top of their Drive, inside one folder (parent_folder_id), or by name (search). The first call starts the lookup and returns status listing: call again with the same input after a few seconds for the folders. current_photo_folder is the one 1BB watches now. With more than one Google Drive connected this reads their main Drive (google_account; main true in onebb_list_connected). Each Drive keeps its own photo folder.',
   onebb_set_photo_folder: "Make a folder from onebb_list_drive_folders the photo folder 1BB brings new photos in from. It replaces the current one (say which), so get a yes first. Only folders from a list shown to the member work.",
-  onebb_list_connected: `Shows everything hooked up to the member's 1BB account in one answer: their sign-in email and contact email, every social account they post on (several on one platform is fine) with how many posts are lined up for each, their Google Drive, and the apps that send their calls to 1BB (Zoom, Fathom, Fireflies, Granola, Plaud, Omi, Notion). Each one says if it is working. Use it for "what's connected?", "which accounts do I have?", and to check that a new connection worked.`,
-  onebb_add_connection: "Gives the link and the one thing to tap to connect a new social account, Google Drive, Zoom or another call app. Also use it to connect one again that stopped working, or to add a second account on the same platform. The sign-in happens in the member's browser, so nothing changes until they tap. Afterwards check onebb_list_connected to confirm it worked. Never ask for a password or key in chat.",
-  onebb_remove_connection: "Disconnects one social account, Google Drive, Zoom or a call app from the member's 1BB account. First show its name and how many lined-up posts use it (onebb_list_connected), say it can only come back by connecting again, and get a clear yes. Posts, photos and calls already in 1BB stay. Returns what was removed and what is still connected.",
-  onebb_set_contact_email: "Sets, changes or removes the contact email other 1BB members see in the Directory, after the member said yes to the exact email. It does not change the email they sign in with (that can't be changed from chat yet).",
+  onebb_list_connected: `Shows everything hooked up to the member's 1BB account in one answer: their sign-in email and contact email, every social account they post on (several on one platform is fine) with how many posts are lined up for each, every Google Drive, Zoom and call app account that sends their calls and photos to 1BB (several of each is fine), and their other verified emails. Each one says if it is working. Use it for "what's connected?", "which accounts do I have?", and to check that a new connection worked.`,
+  onebb_add_connection: "Gives the link and the one thing to tap to connect a new social account, Google Drive, Zoom or another call app. Also use it to connect one again that stopped working, or to add another account of the same kind (a second Instagram, Google Drive, Zoom or call app account): adding one never removes the others. The sign-in happens in the member's browser, so nothing changes until they tap. Afterwards check onebb_list_connected to confirm it worked. Never ask for a password or key in chat.",
+  onebb_remove_connection: "Disconnects one social account, Google Drive, Zoom or call app account from the member's 1BB account. When they have more than one of that kind, send its connection_id so only that one goes; the others keep working. First show its name and how many lined-up posts use it (onebb_list_connected), say it can only come back by connecting again, and get a clear yes. Posts, photos and calls already in 1BB stay. Returns what was removed and what is still connected.",
+  onebb_set_contact_email: "Sets, changes or removes the contact email other 1BB members see in the Directory, after the member said yes to the exact email. It does not change the email they sign in with (that is onebb_change_sign_in_email).",
+  onebb_manage_email: "Adds, verifies or removes the member's other email addresses (besides the one they sign in with), after they said yes. add mails a 6-digit code to that address; ask the member for the code from that inbox and send it with verify. An email only counts once verified. Verified emails let 1BB recognize the member on call recordings and meeting invites sent from or to that address. They are not a way to sign in. List them with onebb_list_connected.",
+  onebb_change_sign_in_email: "Asks to change the email the member signs in to 1BB with, after they said yes to the exact new email. This only asks: nothing changes from chat. For safety the member finishes it themselves in 1BB: they open approve_url while signed in, tap Send code, and enter the 8-digit code 1BB emails to the new address plus their current password. Their old email then gets a note that it changed, with a link to undo it. Give them approve_url and say exactly that. Never ask for the code or their password in chat. An email another 1BB account uses is refused. This is not the contact email (onebb_set_contact_email).",
   onebb_save_setup_answer: "Saves one setup answer to the member's 1BB account after they said yes to the exact words: one of the 5 setup questions, their business name, or their time zone. Answering a skipped step takes the skip back. Saving the last of the 5 questions finishes setup and starts building their Second Brain. Returns the updated setup steps.",
   onebb_skip_setup_step: "Remembers that the member wants to skip a setup step or one setup question for now, so it shows as skipped (not done) and is not asked again. skip false takes the skip back. Setup is optional; skipping never limits what else they can do."
 };
@@ -30757,6 +30775,8 @@ function createConnectServer(client, available, site = "https://1bbcommunity.com
       "onebb_skip_setup_step",
       "onebb_remove_connection",
       "onebb_set_contact_email",
+      "onebb_manage_email",
+      "onebb_change_sign_in_email",
       "onebb_update_profile",
       "onebb_set_photo_folder"
     ].includes(name);
@@ -30809,6 +30829,8 @@ function createConnectServer(client, available, site = "https://1bbcommunity.com
             "onebb_save_setup_answer",
             "onebb_remove_connection",
             "onebb_set_contact_email",
+            "onebb_manage_email",
+            "onebb_change_sign_in_email",
             "onebb_update_profile",
             "onebb_set_photo_folder"
           ].includes(name),

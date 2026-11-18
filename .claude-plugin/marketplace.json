@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "Plug your 1BB account into Claude Code. Read your goals, training, Voice DNA and shared sources, import calls into your Gallery, and save drafts back to your 1BB Library.",
-    "version": "0.3.5"
+    "version": "0.3.6"
   },
   "plugins": [
     {
       "name": "1bb",
       "source": "./plugins/1bb",
       "description": "1BB Connect: your 1BB business context and Library inside Claude Code, plus ready-made playbooks, including setup for new members.",
-      "version": "0.3.5",
+      "version": "0.3.6",
       "category": "productivity",
       "keywords": ["1bb", "content", "social", "drafts", "mcp"]
     }

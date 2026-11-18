@@ -1,5 +1,12 @@
 # Changelog
 
+## [2026-11-18, version 0.3.6]
+### Changed
+- Claude Desktop bridge rebuilt from 1bb-community `dev` (commit 127342b, PRs #1920 to #1924). It now knows 108 Connect tools (was 106), adding `onebb_manage_email` (add, verify or remove extra emails) and `onebb_change_sign_in_email` (asks to change the sign-in email; the member finishes it in 1BB). Why: both shipped to production on 2026-11-18.
+- Plugin, marketplace and extension versions bumped to 0.3.6.
+### Note
+- `onebb_change_sign_in_email` needs the `account:email` permission, which no key or sign-in gets by default, so most members will not see it until they turn it on.
+
 ## [2026-11-17, version 0.3.5]
 ### Changed
 - Claude Desktop bridge rebuilt from 1bb-community `dev` (commit a1a2070, PR #1919). It now knows all 106 Connect tools (was 35), including the setup tools and `onebb_guide`, plus the short instructions and the `onebb://guide/<topic>` guide resources. Why: Desktop members were missing every tool added since October and the new guides the hosted server's instructions point to.

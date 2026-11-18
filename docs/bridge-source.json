@@ -1,8 +1,8 @@
 {
   "repo": "1-Button-Business/1bb-community",
   "branch": "dev",
-  "commit": "a1a2070be8869ee14f13ff212d525494d7221781",
-  "built": "2026-11-17",
-  "tools": 106,
-  "sha256": "e4b5c66ade38fee6b5a18fb7d3e664bf31a0a3a7e7b12f17596dcfc476955774"
+  "commit": "127342b1422900463012b71bbac7819c1587f195",
+  "built": "2026-11-18",
+  "tools": 108,
+  "sha256": "e9bfd08ecfaa5e3948ca6c456e83fce3f7a898e6e9ff146dc6fe73fbb5d0d9d4"
 }
