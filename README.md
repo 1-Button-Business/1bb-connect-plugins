@@ -2,7 +2,7 @@
 
 Plug your 1BB account into the AI you already use: Claude on the web, Claude Code, Codex, Claude Desktop, Cursor, Windsurf or Antigravity.
 
-**The short version:** on Claude on the web you just sign in with 1BB. For the other apps you make a connection key inside 1BB and put it on your own computer, never in a chat. Your AI then reads the parts of 1BB you picked, brings calls into your Gallery, saves drafts and proposes posts. You still approve every post yourself, inside 1BB.
+**The short version:** on Claude on the web you just sign in with 1BB. For the other apps you make a connection key inside 1BB and put it on your own computer, never in a chat. Your AI then reads the parts of 1BB you picked, brings calls into your Gallery, saves drafts and proposes posts. By default you approve every post yourself, inside 1BB. If you turn on **Let this AI post for me** in 1BB, your AI can post for you after you say yes in the chat. See [Posting](#posting-who-presses-the-button).
 
 Your connection keeps working while your 1BB membership is active. If the membership ends, it stops on its own.
 
@@ -19,7 +19,7 @@ To stop it, disconnect it in 1BB Settings, then Connect, or remove the connector
 
 | Your AI CAN | Your AI CAN'T |
 | --- | --- |
-| Read your business brief | Approve, schedule or publish a post |
+| Read your business brief | Post anything before you say yes to it |
 | Import a call you picked into your Gallery | Pull calls you did not ask for |
 | Read your goals (read only) | Change your goals or training progress |
 | Search and read 1BB training | See other members, staff records or your personal notes |
@@ -27,7 +27,17 @@ To stop it, disconnect it in 1BB Settings, then Connect, or remove the connector
 | Search sources you chose to share | Spend money on images or video |
 | List and read your Library | See your password |
 | Save drafts and edit unapproved draft captions | Do anything you did not tick when you made the key |
-| Prepare one post and hand you a review link | Post for you. You tap Approve inside 1BB. |
+| Prepare posts and hand you a review link to approve in 1BB | Post for you unless you turned on Let this AI post for me |
+| Post or schedule for you on all your accounts, only if you turned on Let this AI post for me and said yes in the chat | Turn on Let this AI post for me. Only you can, inside 1BB. |
+
+## Posting: who presses the button
+
+There are two ways, and you pick which one in 1BB (Settings, then Connect your AI).
+
+- **Off (the default): you approve in 1BB.** Your AI writes the post and gives you a review link. Nothing goes out until you open it and tap Approve.
+- **On ("Let this AI post for me"): your AI can post for you.** It shows you the exact post, account and time, and asks "Post these?" After you say yes in the chat, it posts or schedules it everywhere you picked, with no 1BB visit.
+
+To be straight with you about how that yes works: when the setting is on, 1BB checks that the setting is on. It does not see your yes. Asking you first is a rule your AI follows, and it is the AI's own check. If you want a tap in 1BB for every post, leave the setting off. You can switch it off any time, and you can cancel a scheduled post before it goes out.
 
 ## How it works
 
@@ -42,8 +52,10 @@ flowchart LR
   B --> A
   A -->|checks membership and permissions on every request| D[(Your 1BB account)]
   D -->|goals, training, voice, shared sources| AI
-  AI -->|imports calls, saves drafts, prepares one post| D
-  D --> Rev[You review and approve inside 1BB]
+  AI -->|imports calls, saves drafts, prepares or posts| D
+  D --> S{Let this AI post for me?}
+  S -->|off, the default| Rev[You review and approve inside 1BB]
+  S -->|on, after your yes in the chat| P
   Rev --> P[1BB posts it on schedule]
 ```
 

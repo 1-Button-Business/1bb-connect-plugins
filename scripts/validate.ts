@@ -152,6 +152,50 @@ check(wind.serverUrl === MCP_URL && obj(wind.headers).Authorization === `Bearer 
 const toml = readFileSync(join(ROOT, "configs/codex-config.toml"), "utf8");
 check(toml.includes(`url = "${MCP_URL}"`) && toml.includes(`bearer_token_env_var = "${ENV_VAR}"`), "codex config.toml snippet");
 
+console.log("README posting claims match the skills");
+// The README is a promise to members. If any playbook can post directly, the
+// README must say so honestly; if none can, it must not claim the AI posts.
+// Tools that put a post out (or move it) without a tap in 1BB when direct_posting is on.
+const DIRECT_POST_TOOLS = [
+  "onebb_publish_everywhere", "onebb_publish", "onebb_reschedule_post", "onebb_retry_post",
+  "onebb_post_words", "onebb_post_video", "onebb_edit_scheduled_post", "onebb_decide_draft",
+  "onebb_spread_approved", "onebb_post_plan_card_now",
+];
+const readme = readFileSync(join(ROOT, "README.md"), "utf8");
+const postingSkills = skillDirs.filter((dir) => {
+  const text = readFileSync(join(ROOT, PLUGIN, "skills", dir, "SKILL.md"), "utf8");
+  return DIRECT_POST_TOOLS.some((t) => text.includes(`\`${t}\``));
+});
+const POSTING_FIX =
+  "Fix the root cause: make README.md tell members the truth about posting (off by default, review link in 1BB; " +
+  "with Let this AI post for me on, the AI posts after a yes in chat, and 1BB only enforces the setting, not the yes), " +
+  "or remove the direct-post tools from the skills. Do not weaken this check or reword around it.";
+// Rows of the "What your AI can and can't do" table: | CAN | CAN'T |
+const cantCells = [...readme.matchAll(/^\|([^|\n]*)\|([^|\n]*)\|\s*$/gm)].map((m) => m[2].trim());
+if (postingSkills.length > 0) {
+  const who = `skills that post directly: ${postingSkills.join(", ")}`;
+  const STALE = [
+    /You still approve every post yourself/i,
+    /can'?t[^\n]*\b(approve|schedule|publish)\b[^\n]*post/i,
+    /Post for you\. You tap Approve/i,
+  ];
+  const stale = STALE.filter((re) => re.test(readme)).map((re) => re.source);
+  check(stale.length === 0, `README does not say the AI can't post (${who})${stale.length ? `\n       FAIL: README still says the AI can't post: ${stale.join(" ; ")}\n       ${POSTING_FIX}` : ""}`);
+  const badCells = cantCells.filter((c) => /\b(publish|schedule|post for you)\b/i.test(c) && !/\bunless\b|\bonly you\b|before you say yes/i.test(c));
+  check(badCells.length === 0, `CAN'T column has no unconditional "can't post"${badCells.length ? `\n       FAIL: CAN'T cells: ${badCells.join(" ; ")}\n       ${POSTING_FIX}` : ""}`);
+  check(/Let this AI post for me/.test(readme), `README names the "Let this AI post for me" setting${/Let this AI post for me/.test(readme) ? "" : `\n       ${POSTING_FIX}`}`);
+  const honest = /does not see your yes/i.test(readme);
+  check(honest, `README says 1BB enforces the setting, not the in-chat yes${honest ? "" : `\n       ${POSTING_FIX}`}`);
+  for (const dir of postingSkills) {
+    const text = readFileSync(join(ROOT, PLUGIN, "skills", dir, "SKILL.md"), "utf8");
+    check(/`?direct_posting`? is true/.test(text) && /`?direct_posting`? is false/.test(text) && /review_url/.test(text),
+      `${dir}: posts directly only when direct_posting is true, else gives the review link`);
+  }
+} else {
+  const claims = /Let this AI post for me|can post for you/i.test(readme);
+  check(!claims, `README does not promise direct posting (no skill calls ${DIRECT_POST_TOOLS.join(", ")})${claims ? `\n       ${POSTING_FIX}` : ""}`);
+}
+
 console.log("Repo-wide safety");
 const realKey = /1bbct_[a-f0-9]{64}/;
 const leaked = ownText.filter((f) => realKey.test(readFileSync(join(ROOT, f), "utf8")));

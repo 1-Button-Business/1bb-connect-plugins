@@ -8,6 +8,8 @@ flowchart LR
   B --> A
   A -->|checks membership and permissions on every request| D[(Your 1BB account)]
   D -->|goals, training, voice, shared sources| AI
-  AI -->|imports calls, saves drafts, prepares one post| D
-  D --> Rev[You review and approve inside 1BB]
+  AI -->|imports calls, saves drafts, prepares or posts| D
+  D --> S{Let this AI post for me?}
+  S -->|off, the default| Rev[You review and approve inside 1BB]
+  S -->|on, after your yes in the chat| P
   Rev --> P[1BB posts it on schedule]

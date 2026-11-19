@@ -1,5 +1,13 @@
 # Changelog
 
+## [2026-11-19]
+### Changed
+- README tells the truth about posting: by default the AI drafts and the member approves in 1BB; with Let this AI post for me (`direct_posting`) on, the AI can post everywhere after the member says yes in the chat. It also says plainly that 1BB enforces only the setting, not the in-chat yes. The flow diagram shows both paths. Why: the README still said the AI can't publish, which stopped being true in 0.3.0.
+### Added
+- The validator ties the README's posting claims to the skills: if any skill calls a direct-post tool (`onebb_publish_everywhere` and friends), the README must not say the AI can't post and must name the setting and the in-chat yes caveat, and each of those skills must branch on `direct_posting`. Why: a check instead of a rule, so the docs and the playbooks cannot drift apart again.
+### Note
+- No version bump: nothing inside the plugin or the extension changed.
+
 ## [2026-11-18, version 0.3.6]
 ### Changed
 - Claude Desktop bridge rebuilt from 1bb-community `dev` (commit 127342b, PRs #1920 to #1924). It now knows 108 Connect tools (was 106), adding `onebb_manage_email` (add, verify or remove extra emails) and `onebb_change_sign_in_email` (asks to change the sign-in email; the member finishes it in 1BB). Why: both shipped to production on 2026-11-18.
