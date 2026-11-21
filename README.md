@@ -273,7 +273,7 @@ docs/diagrams/connect-flow.mmd       flow diagram source
 
 ### Checks
 
-Needs Node 22.18 or newer (runs TypeScript directly, no install step).
+Needs Node 22.18 or newer (runs TypeScript directly, no install step). Every push to main is checked by CI.
 
 ```sh
 npm run validate        # offline checks

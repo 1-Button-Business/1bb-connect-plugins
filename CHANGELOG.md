@@ -1,5 +1,11 @@
 # Changelog
 
+## [2026-11-20]
+### Added
+- GitHub Actions runs `npm run validate`, `npm run smoke`, then `npm run validate:mcpb` on every push to main and on pull requests. Why: the same checks a person runs locally now fail the commit before anyone installs a bad plugin.
+### Note
+- No version bump: nothing inside the plugin or the extension changed.
+
 ## [2026-11-19]
 ### Changed
 - README tells the truth about posting: by default the AI drafts and the member approves in 1BB; with Let this AI post for me (`direct_posting`) on, the AI can post everywhere after the member says yes in the chat. It also says plainly that 1BB enforces only the setting, not the in-chat yes. The flow diagram shows both paths. Why: the README still said the AI can't publish, which stopped being true in 0.3.0.
